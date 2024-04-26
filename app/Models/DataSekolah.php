@@ -8,13 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class DataSekolah extends Model
 {
     use HasFactory;
-    
-    protected $table = "sekolah";
-    protected $fillabel = [
-    'nisn',
-    'nama',
-    'alamat',
-    'derajat'
-];
 
+    protected $fillable = [
+        'nisn',
+        'nama',
+        'alamat',
+        'derajat'
+    ];
 }

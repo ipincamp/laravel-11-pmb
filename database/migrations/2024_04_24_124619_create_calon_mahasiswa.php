@@ -11,19 +11,20 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('calon_mahasiswa', function (Blueprint $table) {
-            $table->string('email');
-            $table->string('nama');
-            $table->string('tempat_lahir');
-            $table->integer('tanggal_lahir');
-            $table->char('jenis_kelamin');
-            $table->string('alamat');
-            $table->integer('rt_rw');
-            $table->string('kelurahan');
-            $table->string('kecamatan');
-            $table->string('kabupaten_kota');
-            $table->string('provinsi');
-            $table->string('no_hp');
+        Schema::create('calon_mahasiswas', function (Blueprint $table) {
+            $table->id();
+            $table->string('email', 100)->unique();
+            $table->string('nama', 100);
+            $table->string('tempat_lahir', 100);
+            $table->date('tanggal_lahir');
+            $table->char('jenis_kelamin', 1);
+            $table->string('alamat', 255);
+            $table->string('rt_rw', 10);
+            $table->string('kelurahan', 100);
+            $table->string('kecamatan', 100);
+            $table->string('kabupaten_kota', 100);
+            $table->string('provinsi', 100);
+            $table->string('no_hp', 15);
             $table->timestamps();
         });
     }
@@ -33,6 +34,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('calon_mahasiswa');
+        Schema::dropIfExists('calon_mahasiswas');
     }
 };
