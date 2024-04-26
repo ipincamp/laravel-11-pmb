@@ -6,7 +6,7 @@
             </a>
         </li>
         <li class="nav-item mb-2">
-            <a href="" class="nav-link {{ request()->is('formulir-pendaftaran') ? 'active' : 'link-dark' }}" aria-current="{{ request()->is('formulir-pendaftaran') ? 'page' : '' }}">
+            <a href="{{ url('formulir') }}" class="nav-link {{ request()->is('formulir-pendaftaran') ? 'active' : 'link-dark' }}" aria-current="{{ request()->is('formulir-pendaftaran') ? 'page' : '' }}">
             Formulir Pendaftaran
             </a>
         </li>
