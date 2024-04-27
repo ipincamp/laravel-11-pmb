@@ -15,7 +15,8 @@ return new class extends Migration
             $table->integer('nisn')->primary();
             $table->string('nama', 50);
             $table->string('alamat', 255);
-            $table->string('derajat', 10); // sma, smk, ma, dll
+            $table->enum('derajat', ['SMA', 'SMK', 'MA']);
+            $table->string('jurusan', 100);
             $table->timestamps();
         });
     }

@@ -19,6 +19,7 @@ return new class extends Migration
             $table->date('tanggal_lahir');
             $table->char('jenis_kelamin', 1);
             $table->string('alamat', 255);
+            $table->string('agama', 50);
             $table->string('rt_rw', 10);
             $table->string('kelurahan', 100);
             $table->string('kecamatan', 100);

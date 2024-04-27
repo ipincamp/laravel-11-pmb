@@ -8,25 +8,34 @@
             </div>
 
             <!-- Form tambah data -->
-            <form method="post" action="{{ url('data-sekolah') }}">
+            <form method="post" action="{{ url('formulir/sekolah') }}">
                 @csrf
 
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label for="nisn" class="form-label">Nisn</label>
+                        <label for="nisn" class="form-label">NISN (Nomor Induk Siswa Nasional)</label>
                         <input type="number" class="form-control" id="nisn" name="nisn">
                     </div>
                     <div class="mb-3">
-                        <label for="jenjang" class="form-label">Jenjang smk/sma/ma</label>
-                        <input type="text" class="form-control" id="jenjang" name="jenjang">
+                        <label for="derajat" class="form-label">SMK / SMA / MA</label>
+                        <select class="form-select" id="derajat" name="derajat">
+                            <option selected>Pilih Jenjang</option>
+                            <option value="SMK">SMK</option>
+                            <option value="SMA">SMA</option>
+                            <option value="MA">MA</option>
+                        </select>
                     </div>
                     <div class="mb-3">
-                        <label for="sekolah" class="form-label">Nama Sekolah</label>
-                        <input type="text" class="form-control" id="sekolah" name="sekolah">
+                        <label for="nama" class="form-label">Nama Sekolah</label>
+                        <input type="text" class="form-control" id="nama" name="nama">
                     </div>
                     <div class="mb-3">
-                        <label for="jurusan" class="form-label">Kode Jurusan</label>
+                        <label for="jurusan" class="form-label">Jurusan</label>
                         <input type="text" class="form-control" id="jurusan" name="jurusan">
+                    </div>
+                    <div class="mb-3">
+                        <label for="alamat" class="form-label">Alamat Sekolah</label>
+                        <textarea class="form-control" id="alamat" name="alamat" rows="3"></textarea>
                     </div>
                 </div>
 

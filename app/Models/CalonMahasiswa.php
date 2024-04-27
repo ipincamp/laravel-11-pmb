@@ -16,6 +16,7 @@ class CalonMahasiswa extends Model
         'tanggal_lahir',
         'jenis_kelamin',
         'alamat',
+        'agama',
         'rt_rw',
         'kelurahan',
         'kecamatan',

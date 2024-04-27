@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class DataSekolah extends Model
+class Sekolah extends Model
 {
     use HasFactory;
 
@@ -13,6 +13,7 @@ class DataSekolah extends Model
         'nisn',
         'nama',
         'alamat',
-        'derajat'
+        'derajat',
+        'jurusan',
     ];
 }

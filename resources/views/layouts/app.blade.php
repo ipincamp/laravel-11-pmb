@@ -31,7 +31,7 @@
         @include('partials.navbar')
 
         <div class="container-fluid">
-            <div class="row">
+            <div class="row mb-5">
                 <div class="d-flex">
                     @auth
                         <div class="col-md-2">
