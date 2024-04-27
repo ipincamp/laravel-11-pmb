@@ -16,6 +16,7 @@ Route::controller(App\Http\Controllers\FormulirController::class)->group(functio
     Route::get('/formulir', 'index');
     Route::post('/formulir/sekolah', 'addSekolah');
     Route::post('/formulir/mahasiswa', 'addMahasiswa');
+    Route::post('/formulir/orangtuawali', 'addOrangTuaWali');
 });
 
 // Route::get('/formulir', [App\Http\Controllers\FormulirController::class, 'index']);

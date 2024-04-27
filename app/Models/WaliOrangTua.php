@@ -10,6 +10,7 @@ class WaliOrangTua extends Model
     use HasFactory;
 
     protected $fillable = [
+        'untuk',
         'nama_ayah',
         'nama_ibu',
         'no_hp',

@@ -71,55 +71,68 @@
                                 @foreach ($mahasiswas as $row)
                                     <div class="mb-2">
                                         <label for="inputNama" class="form-label">Nama Lengkap</label>
-                                        <input type="text" id="inputNama" class="form-control" value="{{ $row->nama }}" readonly>
+                                        <input type="text" id="inputNama" class="form-control"
+                                            value="{{ $row->nama }}" readonly>
                                     </div>
                                     <div class="mb-2">
                                         <label for="inputEmail" class="form-label">Email</label>
-                                        <input type="email" id="inputEmail" class="form-control" value="{{ $row->email }}" readonly>
+                                        <input type="email" id="inputEmail" class="form-control"
+                                            value="{{ $row->email }}" readonly>
                                     </div>
                                     <div class="mb-2">
                                         <label for="inputTLahir" class="form-label">Tempat Lahir</label>
-                                        <input type="text" id="inputTLahir" class="form-control" value="{{ $row->tempat_lahir }}" readonly>
+                                        <input type="text" id="inputTLahir" class="form-control"
+                                            value="{{ $row->tempat_lahir }}" readonly>
                                     </div>
                                     <div class="mb-2">
                                         <label for="inputTglLahir" class="form-label">Tanggal Lahir</label>
-                                        <input type="text" id="inputTglLahir" class="form-control" value="{{ $row->tanggal_lahir }}" readonly>
+                                        <input type="text" id="inputTglLahir" class="form-control"
+                                            value="{{ $row->tanggal_lahir }}" readonly>
                                     </div>
                                     <div class="mb-2">
                                         <label for="inputJKelamin" class="form-label">Jenis Kelamin</label>
-                                        <input type="text" id="inputJKelamin" class="form-control" value="{{ $row->jenis_kelamin == 'L' ? 'Laki Laki' : 'Perempuan' }}" readonly>
+                                        <input type="text" id="inputJKelamin" class="form-control"
+                                            value="{{ $row->jenis_kelamin == 'L' ? 'Laki Laki' : 'Perempuan' }}" readonly>
                                     </div>
                                     <div class="mb-2">
                                         <label for="inputAgama" class="form-label">Agama</label>
-                                        <input type="text" id="inputAgama" class="form-control" value="{{ $row->agama }}" readonly>
+                                        <input type="text" id="inputAgama" class="form-control"
+                                            value="{{ $row->agama }}" readonly>
                                     </div>
                                     <div class="mb-2">
                                         <label for="inputAlamat" class="form-label">Alamat</label>
-                                        <input type="text" id="inputAlamat" class="form-control" value="{{ $row->alamat }}" readonly>
+                                        <input type="text" id="inputAlamat" class="form-control"
+                                            value="{{ $row->alamat }}" readonly>
                                     </div>
                                     <div class="mb-2">
                                         <label for="inputRT" class="form-label">RT</label>
-                                        <input type="text" id="inputRT" class="form-control" value="{{ $row->rt_rw }}" readonly>
+                                        <input type="text" id="inputRT" class="form-control"
+                                            value="{{ $row->rt_rw }}" readonly>
                                     </div>
                                     <div class="mb-2">
                                         <label for="inputKelurahan" class="form-label">Kelurahan</label>
-                                        <input type="text" id="inputKelurahan" class="form-control" value="{{ $row->kelurahan }}" readonly>
+                                        <input type="text" id="inputKelurahan" class="form-control"
+                                            value="{{ $row->kelurahan }}" readonly>
                                     </div>
                                     <div class="mb-2">
                                         <label for="inputKecamatan" class="form-label">Kecamatan</label>
-                                        <input type="text" id="inputKecamatan" class="form-control" value="{{ $row->kecamatan }}" readonly>
+                                        <input type="text" id="inputKecamatan" class="form-control"
+                                            value="{{ $row->kecamatan }}" readonly>
                                     </div>
                                     <div class="mb-2">
                                         <label for="inputKabupaten" class="form-label">Kabupaten/Kota</label>
-                                        <input type="text" id="inputKabupaten" class="form-control" value="{{ $row->kabupaten_kota }}" readonly>
+                                        <input type="text" id="inputKabupaten" class="form-control"
+                                            value="{{ $row->kabupaten_kota }}" readonly>
                                     </div>
                                     <div class="mb-2">
                                         <label for="inputProvinsi" class="form-label">Provinsi</label>
-                                        <input type="text" id="inputProvinsi" class="form-control" value="{{ $row->provinsi }}" readonly>
+                                        <input type="text" id="inputProvinsi" class="form-control"
+                                            value="{{ $row->provinsi }}" readonly>
                                     </div>
                                     <div class="mb-2">
                                         <label for="inputNoHp" class="form-label">No Hp</label>
-                                        <input type="text" id="inputNoHp" class="form-control" value="{{ $row->no_hp }}" readonly>
+                                        <input type="text" id="inputNoHp" class="form-control"
+                                            value="{{ $row->no_hp }}" readonly>
                                     </div>
                                 @endforeach
                             @endif
@@ -133,32 +146,42 @@
         <div class="row justify-content-center mt-3">
             <div class="col-md-10">
                 <div class="card">
-                    <div class="card-header">{{ __('Calon Mahasiswa') }}</div>
+                    <div class="card-header">{{ __('Data Orang Tua / Wali') }}</div>
                     <div class="card-body">
-                        <div class="btn-group" role="group" aria-label="Basic example">
-                            <div class="table-responsive">
-                                <table class="table table-responsive table-bordered table-stripped table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th>Untuk</th>
-                                            <th>Nama Ayah</th>
-                                            <th>Nama Ibu</th>
-                                            <th>No Hp</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach ($orangtuas as $row)
-                                            <tr>
-                                                <td>{{ $row->untuk }}</td>
-                                                <td>{{ $row->nama_ayah }}</td>
-                                                <td>{{ $row->nama_ibu }}</td>
-                                                <td>{{ $row->no_hp }}</td>
-                                            </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
+                        <form>
+                            @if ($orangtuas->isEmpty())
+                                <div class="alert alert-warning" role="alert">
+                                    Data orang tua / wali belum lengkap
+                                </div>
+                                <button type="button" class="btn btn-success btn-square" data-bs-toggle="modal"
+                                    data-bs-target="#modalTambahOrangTuaWali">
+                                    Lengkapi sekarang
+                                </button>
+                            @else
+                                @foreach ($orangtuas as $row)
+                                    <div class="mb-2">
+                                        <label for="inputUntuk" class="form-label">Hubungan</label>
+                                        <input type="text" id="inputUntuk" class="form-control"
+                                            value="{{ $row->untuk }}" readonly>
+                                    </div>
+                                    <div class="mb-2">
+                                        <label for="inputNamaAyah" class="form-label">Nama Ayah</label>
+                                        <input type="text" id="inputNamaAyah" class="form-control"
+                                            value="{{ $row->nama_ayah }}" readonly>
+                                    </div>
+                                    <div class="mb-2">
+                                        <label for="inputNamaIbu" class="form-label">Nama Ibu</label>
+                                        <input type="text" id="inputNamaIbu" class="form-control"
+                                            value="{{ $row->nama_ibu }}" readonly>
+                                    </div>
+                                    <div class="mb-2">
+                                        <label for="inputNoHpOrtuWali" class="form-label">Nomor HP</label>
+                                        <input type="text" id="inputNoHpOrtuWali" class="form-control"
+                                            value="{{ $row->no_hp }}" readonly>
+                                    </div>
+                                @endforeach
+                            @endif
+                        </form>
                     </div>
                 </div>
             </div>
@@ -171,6 +194,7 @@
     @if ($mahasiswas->isEmpty())
         @include('pendaftaran.modals.add-mahasiswa')
     @endif
-    {{-- @include('pendaftaran.modals.mahasiswa')
-    @include('pendaftaran.modals.wali-orangtua') --}}
+    @if ($orangtuas->isEmpty())
+        @include('pendaftaran.modals.add-orangtuawali');
+    @endif
 @endsection

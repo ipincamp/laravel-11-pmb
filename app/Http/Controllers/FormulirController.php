@@ -77,6 +77,23 @@ class FormulirController extends Controller
     }
 
     /**
+     * Store a newly created resource in storage.
+     * Orang Tua / Wali
+     */
+    public function addOrangTuaWali(Request $request)
+    {
+        $orangtua = new WaliOrangTua();
+
+        $orangtua->untuk = $request->hubungan;
+        $orangtua->nama_ayah = $request->nama_ayah;
+        $orangtua->nama_ibu = $request->nama_ibu;
+        $orangtua->no_hp = $request->no_hp;
+        $orangtua->save();
+
+        return redirect()->back();
+    }
+
+    /**
      * Display the specified resource.
      */
     public function show(string $id)
