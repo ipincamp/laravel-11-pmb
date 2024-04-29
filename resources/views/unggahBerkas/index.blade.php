@@ -11,7 +11,7 @@
                         </div>
                         <div class="card-body">
                             <div id="dmt1">
-                                <label for="smt_1">Upload Semester 1</label>
+                                <label for="smt_1">Upload Rapot Semester 1</label>
                                 <div>
                                     <img src="" alt="data rapot"> 
                                 </div>
@@ -31,7 +31,7 @@
                         </div>
                         <div class="card-body">
                             <div id="dmt1">
-                                <label for="smt_1">Upload Semester 2</label>
+                                <label for="smt_1">Upload Rapot Semester 2</label>
                                 <div>
                                     <img src="" alt="data rapot">
                                 </div>
@@ -51,7 +51,7 @@
                         </div>
                         <div class="card-body">
                             <div id="dmt1">
-                                <label for="smt_1">Upload Semester 3</label>
+                                <label for="smt_1">Upload Rapot Semester 3</label>
                                 <div>
                                     <img src="" alt="data rapot">
                                 </div>
@@ -71,7 +71,7 @@
                         </div>
                         <div class="card-body">
                             <div id="dmt1">
-                                <label for="smt_1">Upload Semester 4</label>
+                                <label for="smt_1">Upload Rapot Semester 4</label>
                                 <div>
                                     <img src="" alt="data rapot">
                                 </div>
