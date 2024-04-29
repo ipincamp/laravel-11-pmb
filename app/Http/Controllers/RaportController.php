@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\UnggahBerkas;
 use Illuminate\Http\Request;
 
-class RapotController extends Controller
+class RaportController extends Controller
 {
     /**
      * Create a new controller instance.

@@ -17,16 +17,14 @@ class UjianController extends Controller
         $this->middleware('auth');
     }
 
-    
     public function index()
     {
         // $rapots1 = UnggahBerkas::all();
 
         // return view('unggahBerkas.index', compact('rapots1', ));
-        return view('Ujian.index');
-
-        
+        return view('ujian-online.index');
     }
+
     public function addRapot(Request $request)
     {
         $sekolah = new Ujian();

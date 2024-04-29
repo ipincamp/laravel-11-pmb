@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class PernyataanController extends Controller
 {
-     /**
+    /**
      * Create a new controller instance.
      *
      * @return void
@@ -17,16 +17,14 @@ class PernyataanController extends Controller
         $this->middleware('auth');
     }
 
-    
     public function index()
     {
         // $rapots1 = UnggahBerkas::all();
 
         // return view('unggahBerkas.index', compact('rapots1', ));
         return view('pernyataan.index');
-
-        
     }
+
     public function addRapot(Request $request)
     {
         $sekolah = new SuratPernyataan();
