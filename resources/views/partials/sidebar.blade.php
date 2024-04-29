@@ -11,22 +11,22 @@
             </a>
         </li>
         <li class="nav-item mb-2">
-            <a href="{{ url('unggah')}}" class="nav-link {{ request()->is('unggah-scan-raport') ? 'active' : 'link-dark' }}" aria-current="{{ request()->is('unggah-scan-raport') ? 'page' : '' }}">
+            <a href="{{ url('raport')}}" class="nav-link {{ request()->is('raport') ? 'active' : 'link-dark' }}" aria-current="{{ request()->is('raport') ? 'page' : '' }}">
             Unggah Scan Raport
             </a>
         </li>
         <li class="nav-item mb-2">
-            <a href="{{url("ujian")}}" class="nav-link {{ request()->is('ujian-online') ? 'active' : 'link-dark' }}" aria-current="{{ request()->is('ujian-online') ? 'page' : '' }}">
+            <a href="{{url("ujian")}}" class="nav-link {{ request()->is('ujian') ? 'active' : 'link-dark' }}" aria-current="{{ request()->is('ujian') ? 'page' : '' }}">
             Ujian Online
             </a>
         </li>
         <li class="nav-item mb-2">
-            <a href="{{ url('dokumen')}}" class="nav-link {{ request()->is('unggah-dokumen') ? 'active' : 'link-dark' }}" aria-current="{{ request()->is('unggah-dokumen') ? 'page' : '' }}">
+            <a href="{{ url('dokumen')}}" class="nav-link {{ request()->is('dokumen') ? 'active' : 'link-dark' }}" aria-current="{{ request()->is('dokumen') ? 'page' : '' }}">
             Unggah Dokumen
             </a>
         </li>
         <li class="nav-item mb-2">
-            <a href="{{url('pernyataan')}}" class="nav-link {{ request()->is('unggah-surat-pernyataan') ? 'active' : 'link-dark' }}" aria-current="{{ request()->is('unggah-surat-pernyataan') ? 'page' : '' }}">
+            <a href="{{url('pernyataan')}}" class="nav-link {{ request()->is('pernyataan') ? 'active' : 'link-dark' }}" aria-current="{{ request()->is('pernyataan') ? 'page' : '' }}">
             Unggah Surat Pernyataan
             </a>
         </li>
@@ -59,9 +59,7 @@
                 <hr class="dropdown-divider">
             </li>
             <li>
-                <a class="btn-danger btn-link dropdown-item text-danger text-decoration-none text-center p-0"
-                    href="{{ route('logout') }} "
-                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                <a class="btn-danger btn-link dropdown-item text-danger text-decoration-none text-center p-0" href="{{ route('logout') }} "onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                     Keluar
                 </a>
 
