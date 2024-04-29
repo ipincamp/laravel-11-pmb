@@ -11,22 +11,22 @@
             </a>
         </li>
         <li class="nav-item mb-2">
-            <a href="#" class="nav-link {{ request()->is('unggah-scan-raport') ? 'active' : 'link-dark' }}" aria-current="{{ request()->is('unggah-scan-raport') ? 'page' : '' }}">
+            <a href="{{ url('unggah')}}" class="nav-link {{ request()->is('unggah-scan-raport') ? 'active' : 'link-dark' }}" aria-current="{{ request()->is('unggah-scan-raport') ? 'page' : '' }}">
             Unggah Scan Raport
             </a>
         </li>
         <li class="nav-item mb-2">
-            <a href="#" class="nav-link {{ request()->is('ujian-online') ? 'active' : 'link-dark' }}" aria-current="{{ request()->is('ujian-online') ? 'page' : '' }}">
+            <a href="{{url("ujian")}}" class="nav-link {{ request()->is('ujian-online') ? 'active' : 'link-dark' }}" aria-current="{{ request()->is('ujian-online') ? 'page' : '' }}">
             Ujian Online
             </a>
         </li>
         <li class="nav-item mb-2">
-            <a href="#" class="nav-link {{ request()->is('unggah-dokumen') ? 'active' : 'link-dark' }}" aria-current="{{ request()->is('unggah-dokumen') ? 'page' : '' }}">
+            <a href="{{ url('dokumen')}}" class="nav-link {{ request()->is('unggah-dokumen') ? 'active' : 'link-dark' }}" aria-current="{{ request()->is('unggah-dokumen') ? 'page' : '' }}">
             Unggah Dokumen
             </a>
         </li>
         <li class="nav-item mb-2">
-            <a href="#" class="nav-link {{ request()->is('unggah-surat-pernyataan') ? 'active' : 'link-dark' }}" aria-current="{{ request()->is('unggah-surat-pernyataan') ? 'page' : '' }}">
+            <a href="{{url('pernyataan')}}" class="nav-link {{ request()->is('unggah-surat-pernyataan') ? 'active' : 'link-dark' }}" aria-current="{{ request()->is('unggah-surat-pernyataan') ? 'page' : '' }}">
             Unggah Surat Pernyataan
             </a>
         </li>
