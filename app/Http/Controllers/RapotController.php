@@ -17,16 +17,15 @@ class RapotController extends Controller
         $this->middleware('auth');
     }
 
-    
+
     public function index()
     {
         // $rapots1 = UnggahBerkas::all();
 
         // return view('unggahBerkas.index', compact('rapots1', ));
-        return view('unggahBerkas.index');
-
-        
+        return view('unggah-raport.index');
     }
+
     public function addRapot(Request $request)
     {
         $sekolah = new UnggahBerkas();
@@ -36,5 +35,4 @@ class RapotController extends Controller
 
         return redirect()->back();
     }
-
 }
