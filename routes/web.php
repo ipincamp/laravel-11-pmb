@@ -12,6 +12,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/bantuan', [App\Http\Controllers\HelpController::class, 'index'])->name('bantuan');
 
+// formulir pendaftaran
 Route::controller(App\Http\Controllers\FormulirController::class)->group(function () {
     Route::get('/formulir', 'index');
     Route::post('/formulir/sekolah', 'addSekolah');
@@ -19,27 +20,25 @@ Route::controller(App\Http\Controllers\FormulirController::class)->group(functio
     Route::post('/formulir/orangtuawali', 'addOrangTuaWali');
 });
 
-// Route::get('/formulir', [App\Http\Controllers\FormulirController::class, 'index']);
-// Route::get('/data-sekolah', [App\Http\Controllers\DataSekolahController::class, 'index'])->name('dataSekolah');
-// Route::get('/data-calon-mahasiswa', [App\Http\Controllers\DataCalonMahasiswaController::class, 'index'])->name('dataCalonMahasiswa');
-// Route::get('/wali-orang-tua', [App\Http\Controllers\DataCalonMahasiswaController::class, 'index']);
-
-
-Route::controller(App\Http\Controllers\RapotController::class)->group(function () {
-    Route::get('/unggah', 'index');
+// unggah raport
+Route::controller(App\Http\Controllers\RaportController::class)->group(function () {
+    Route::get('/raport', 'index');
     // Route::post('/formulir/sekolah', 'addSekolah');
     // Route::post('/formulir/mahasiswa', 'addMahasiswa');
     // Route::post('/formulir/orangtuawali', 'addOrangTuaWali');
 });
 
-Route::controller(App\Http\Controllers\DokumenController::class)->group(function () {
-    Route::get('/dokumen', 'index');
-});
-
+// ujian online
 Route::controller(App\Http\Controllers\UjianController::class)->group(function () {
     Route::get('/ujian', 'index');
 });
 
+// dokumen: ktp, kk, akte
+Route::controller(App\Http\Controllers\DokumenController::class)->group(function () {
+    Route::get('/dokumen', 'index');
+});
+
+// pernyataan
 Route::controller(App\Http\Controllers\PernyataanController::class)->group(function () {
     Route::get('/pernyataan', 'index');
 });
