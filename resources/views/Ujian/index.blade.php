@@ -14,7 +14,7 @@
                         <form>
                                 <button type="button" class="btn btn-primary btn-square" data-bs-toggle="modal"
                                     data-bs-target="#">
-                                    link zoom
+                                    Link Ujian
                                 </button>
                         </form>
                     </div>
