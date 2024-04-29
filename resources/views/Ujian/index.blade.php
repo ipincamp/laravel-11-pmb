@@ -10,7 +10,7 @@
                         {{ __('Ujian Online') }}
                     </div>
                     <div class="card-body">
-                        <p>09.00 - 12.00, kamis, 25 April 2024</p>
+                        <p>07.00 - 12.00, jum'at, 26 April 2024</p>
                         <form>
                                 <button type="button" class="btn btn-primary btn-square" data-bs-toggle="modal"
                                     data-bs-target="#">
