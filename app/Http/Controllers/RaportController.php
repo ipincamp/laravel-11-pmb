@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\UnggahBerkas;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class RaportController extends Controller
 {
@@ -17,7 +17,9 @@ class RaportController extends Controller
         $this->middleware('auth');
     }
 
-
+    /**
+     * Display a listing of the resource.
+     */
     public function index()
     {
         // $rapots1 = UnggahBerkas::all();
@@ -26,13 +28,30 @@ class RaportController extends Controller
         return view('unggah-raport.index');
     }
 
-    public function addRapot(Request $request)
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
     {
-        $sekolah = new UnggahBerkas();
+        $request->validate([
+            'semester1' => 'mimes:png,jpg,jpeg|max:2048',
+            'semester2' => 'mimes:png,jpg,jpeg|max:2048',
+            'semester3' => 'mimes:png,jpg,jpeg|max:2048',
+            'semester4' => 'mimes:png,jpg,jpeg|max:2048',
+        ]);
 
-        $sekolah->semeter_1 = $request->semester_1;
-        $sekolah->save();
+        $semesters = ['semester1', 'semester2', 'semester3', 'semester4'];
+        $path = '';
 
-        return redirect()->back();
+        foreach ($semesters as $semester) {
+            if ($request->hasFile($semester)) {
+                $filename = auth()->user()->id . '-' . $semester . '.jpg';
+                $path = Storage::putFileAs('raport', $request->file($semester), $filename);
+
+                break;
+            }
+        }
+
+        return back()->with('success', 'File has been successfully uploaded. path' . $path);
     }
 }
