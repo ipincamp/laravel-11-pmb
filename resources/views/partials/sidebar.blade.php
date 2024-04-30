@@ -11,12 +11,12 @@
             </a>
         </li>
         <li class="nav-item mb-2">
-            <a href="{{ url('raport')}}" class="nav-link {{ request()->is('raport') ? 'active' : 'link-dark' }}" aria-current="{{ request()->is('raport') ? 'page' : '' }}">
+            <a href="{{ url('raports') }}" class="nav-link {{ request()->is('raports') ? 'active' : 'link-dark' }}" aria-current="{{ request()->is('raports') ? 'page' : '' }}">
             Unggah Scan Raport
             </a>
         </li>
         <li class="nav-item mb-2">
-            <a href="{{url("ujian")}}" class="nav-link {{ request()->is('ujian') ? 'active' : 'link-dark' }}" aria-current="{{ request()->is('ujian') ? 'page' : '' }}">
+            <a href="{{ url('ujian')}}" class="nav-link {{ request()->is('ujian') ? 'active' : 'link-dark' }}" aria-current="{{ request()->is('ujian') ? 'page' : '' }}">
             Ujian Online
             </a>
         </li>

@@ -9,16 +9,36 @@
                 <div class="card">
                     <h5 class="card-header">Raport Semester 1</h5>
                     <div class="card-body">
-                        <div class="mb-3">
-                            <img src="" alt="preview">
-                        </div>
-                        <form action="">
-                            @csrf
-                            <div class="input-group mb-3">
-                                <input type="file" class="form-control" id="inputSemester1" name="semester1">
-                                <label class="input-group-text" for="inputSemester1">Upload</label>
+                        @if (!Storage::exists('raport/' . Auth::id() . '-semester1.jpg'))
+                            <div class="mb-3">
+                                <form action="{{ route('raports.store') }}" method="POST" enctype="multipart/form-data">
+                                    @csrf
+
+                                    <div class="input-group mb-3">
+                                        <input type="file" class="form-control" id="inputFile" name="semester1">
+                                        <label class="input-group-text" for="inputFile">Upload</label>
+                                    </div>
+                                    <div class="d-grid gap-2">
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    </div>
+                                </form>
                             </div>
-                        </form>
+                        @else
+                            <div class="mb-3">
+                                <img src="{{ asset('raport/') }}/{{ Auth::id() }}-semester1.jpg" alt="preview" width="100%" class="img-thumbnail">
+                            </div>
+                        @endif
+
+                        @if(session('success'))
+                            <div class="alert alert-success" role="alert">
+                                {{ session('success') }}
+                            </div>
+                        @endif
+                        @if(session('error'))
+                            <div class="alert alert-danger" role="alert">
+                                {{ session('error') }}
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -28,16 +48,36 @@
                 <div class="card">
                     <h5 class="card-header">Raport Semester 2</h5>
                     <div class="card-body">
-                        <div class="mb-3">
-                            <img src="" alt="preview">
-                        </div>
-                        <form action="">
-                            @csrf
-                            <div class="input-group mb-3">
-                                <input type="file" class="form-control" id="inputSemester2" name="semester2">
-                                <label class="input-group-text" for="inputSemester2">Upload</label>
+                        @if (!Storage::exists('raport/' . Auth::id() . '-semester2.jpg'))
+                            <div class="mb-3">
+                                <form action="{{ route('raports.store') }}" method="POST" enctype="multipart/form-data">
+                                    @csrf
+
+                                    <div class="input-group mb-3">
+                                        <input type="file" class="form-control" id="inputFile" name="semester2">
+                                        <label class="input-group-text" for="inputFile">Upload</label>
+                                    </div>
+                                    <div class="d-grid gap-2">
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    </div>
+                                </form>
                             </div>
-                        </form>
+                        @else
+                            <div class="mb-3">
+                                <img src="{{ asset('raport/') }}/{{ Auth::id() }}-semester2.jpg" alt="preview" width="100%" class="img-thumbnail">
+                            </div>
+                        @endif
+
+                        @if(session('success'))
+                            <div class="alert alert-success" role="alert">
+                                {{ session('success') }}
+                            </div>
+                        @endif
+                        @if(session('error'))
+                            <div class="alert alert-danger" role="alert">
+                                {{ session('error') }}
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -51,16 +91,36 @@
                 <div class="card">
                     <h5 class="card-header">Raport Semester 3</h5>
                     <div class="card-body">
-                        <div class="mb-3">
-                            <img src="" alt="preview">
-                        </div>
-                        <form action="">
-                            @csrf
-                            <div class="input-group mb-3">
-                                <input type="file" class="form-control" id="inputSemester3" name="semester3">
-                                <label class="input-group-text" for="inputSemester3">Upload</label>
+                        @if (!Storage::exists('raport/' . Auth::id() . '-semester3.jpg'))
+                            <div class="mb-3">
+                                <form action="{{ route('raports.store') }}" method="POST" enctype="multipart/form-data">
+                                    @csrf
+
+                                    <div class="input-group mb-3">
+                                        <input type="file" class="form-control" id="inputFile" name="semester3">
+                                        <label class="input-group-text" for="inputFile">Upload</label>
+                                    </div>
+                                    <div class="d-grid gap-2">
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    </div>
+                                </form>
                             </div>
-                        </form>
+                        @else
+                            <div class="mb-3">
+                                <img src="{{ asset('raport/') }}/{{ Auth::id() }}-semester3.jpg" alt="preview" width="100%" class="img-thumbnail">
+                            </div>
+                        @endif
+
+                        @if(session('success'))
+                            <div class="alert alert-success" role="alert">
+                                {{ session('success') }}
+                            </div>
+                        @endif
+                        @if(session('error'))
+                            <div class="alert alert-danger" role="alert">
+                                {{ session('error') }}
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -70,16 +130,36 @@
                 <div class="card">
                     <h5 class="card-header">Raport Semester 4</h5>
                     <div class="card-body">
-                        <div class="mb-3">
-                            <img src="" alt="preview">
-                        </div>
-                        <form action="">
-                            @csrf
-                            <div class="input-group mb-3">
-                                <input type="file" class="form-control" id="inputSemester4" name="semester4">
-                                <label class="input-group-text" for="inputSemester4">Upload</label>
+                        @if (!Storage::exists('raport/' . Auth::id() . '-semester4.jpg'))
+                            <div class="mb-3">
+                                <form action="{{ route('raports.store') }}" method="POST" enctype="multipart/form-data">
+                                    @csrf
+
+                                    <div class="input-group mb-3">
+                                        <input type="file" class="form-control" id="inputFile" name="semester4">
+                                        <label class="input-group-text" for="inputFile">Upload</label>
+                                    </div>
+                                    <div class="d-grid gap-2">
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    </div>
+                                </form>
                             </div>
-                        </form>
+                        @else
+                            <div class="mb-3">
+                                <img src="{{ asset('raport/') }}/{{ Auth::id() }}-semester4.jpg" alt="preview" width="100%" class="img-thumbnail">
+                            </div>
+                        @endif
+
+                        @if(session('success'))
+                            <div class="alert alert-success" role="alert">
+                                {{ session('success') }}
+                            </div>
+                        @endif
+                        @if(session('error'))
+                            <div class="alert alert-danger" role="alert">
+                                {{ session('error') }}
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>

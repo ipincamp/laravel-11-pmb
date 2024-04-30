@@ -21,16 +21,14 @@ Route::controller(App\Http\Controllers\FormulirController::class)->group(functio
 });
 
 // unggah raport
-Route::controller(App\Http\Controllers\RaportController::class)->group(function () {
-    Route::get('/raport', 'index');
-    // Route::post('/formulir/sekolah', 'addSekolah');
-    // Route::post('/formulir/mahasiswa', 'addMahasiswa');
-    // Route::post('/formulir/orangtuawali', 'addOrangTuaWali');
-});
+Route::get('/raports', [App\Http\Controllers\RaportController::class, 'index']);
+Route::post('raports', [App\Http\Controllers\RaportController::class, 'store'])->name('raports.store');
 
 // ujian online
 Route::controller(App\Http\Controllers\UjianController::class)->group(function () {
     Route::get('/ujian', 'index');
+    Route::get('/ujian/soal', 'soal')->name('ujian.soal');
+    Route::post('/ujian/soal', 'jawabSoal')->name('ujian.jawab');
 });
 
 // dokumen: ktp, kk, akte

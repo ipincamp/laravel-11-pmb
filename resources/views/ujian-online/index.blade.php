@@ -11,11 +11,10 @@
                     </div>
                     <div class="card-body">
                         <p>07.00 - 12.00, jum'at, 26 April 2024</p>
-                        <form>
-                            <button type="button" class="btn btn-primary btn-square" data-bs-toggle="modal" data-bs-target="#">
-                                Link Ujian <i class="fas fa-external-link-alt"></i>
-                            </button>
-                        </form>
+
+                        <a href="{{ route('ujian.soal') }}" class="btn btn-primary btn-square">
+                            Link Ujian <i class="fas fa-external-link-alt"></i>
+                        </a>
                     </div>
                 </div>
             </div>

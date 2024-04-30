@@ -19,19 +19,16 @@ class UjianController extends Controller
 
     public function index()
     {
-        // $rapots1 = UnggahBerkas::all();
-
-        // return view('unggahBerkas.index', compact('rapots1', ));
         return view('ujian-online.index');
     }
 
-    public function addRapot(Request $request)
+    public function soal()
     {
-        $sekolah = new Ujian();
+        return view('ujian-online.soal.index');
+    }
 
-        $sekolah->semeter_1 = $request->semester_1;
-        $sekolah->save();
-
-        return redirect()->back();
+    public function jawabSoal(Request $request)
+    {
+        return view('ujian-online.index');
     }
 }
