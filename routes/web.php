@@ -37,6 +37,5 @@ Route::controller(App\Http\Controllers\DokumenController::class)->group(function
 });
 
 // pernyataan
-Route::controller(App\Http\Controllers\PernyataanController::class)->group(function () {
-    Route::get('/pernyataan', 'index');
-});
+Route::get('/pernyataans', [App\Http\Controllers\PernyataanController::class, 'index']);
+Route::post('/pernyataans', [App\Http\Controllers\PernyataanController::class, 'store'])->name('pernyataans.store');

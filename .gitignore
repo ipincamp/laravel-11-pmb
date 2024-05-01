@@ -4,6 +4,7 @@
 /public/hot
 /public/storage
 /public/raport
+/public/pernyataan
 /storage/*.key
 /vendor
 .env
