@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\SuratPernyataan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PernyataanController extends Controller
 {
@@ -25,13 +25,30 @@ class PernyataanController extends Controller
         return view('pernyataan.index');
     }
 
-    public function addRapot(Request $request)
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
     {
-        $sekolah = new SuratPernyataan();
+        $request->validate([
+            'halaman1' => 'mimes:png,jpg,jpeg|max:2048',
+            'halaman2' => 'mimes:png,jpg,jpeg|max:2048',
+            'halaman3' => 'mimes:png,jpg,jpeg|max:2048',
+            'halaman4' => 'mimes:png,jpg,jpeg|max:2048',
+        ]);
 
-        $sekolah->semeter_1 = $request->semester_1;
-        $sekolah->save();
+        $halamans = ['halaman1', 'halaman2', 'halaman3', 'halaman4'];
+        $path = '';
 
-        return redirect()->back();
+        foreach ($halamans as $halaman) {
+            if ($request->hasFile($halaman)) {
+                $filename = auth()->user()->id . '-' . $halaman . '.jpg';
+                $path = Storage::putFileAs('pernyataan', $request->file($halaman), $filename);
+
+                break;
+            }
+        }
+
+        return back()->with('success', 'File has been successfully uploaded. path' . $path);
     }
 }

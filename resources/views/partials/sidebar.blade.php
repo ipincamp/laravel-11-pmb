@@ -16,17 +16,17 @@
             </a>
         </li>
         <li class="nav-item mb-2">
-            <a href="{{ url('ujian')}}" class="nav-link {{ request()->is('ujian') ? 'active' : 'link-dark' }}" aria-current="{{ request()->is('ujian') ? 'page' : '' }}">
+            <a href="{{ url('ujian') }}" class="nav-link {{ request()->is('ujian') ? 'active' : 'link-dark' }}" aria-current="{{ request()->is('ujian') ? 'page' : '' }}">
             Ujian Online
             </a>
         </li>
         <li class="nav-item mb-2">
-            <a href="{{ url('dokumen')}}" class="nav-link {{ request()->is('dokumen') ? 'active' : 'link-dark' }}" aria-current="{{ request()->is('dokumen') ? 'page' : '' }}">
+            <a href="{{ url('dokumens') }}" class="nav-link {{ request()->is('dokumens') ? 'active' : 'link-dark' }}" aria-current="{{ request()->is('dokumens') ? 'page' : '' }}">
             Unggah Dokumen
             </a>
         </li>
         <li class="nav-item mb-2">
-            <a href="{{url('pernyataan')}}" class="nav-link {{ request()->is('pernyataan') ? 'active' : 'link-dark' }}" aria-current="{{ request()->is('pernyataan') ? 'page' : '' }}">
+            <a href="{{ url('pernyataans') }}" class="nav-link {{ request()->is('pernyataans') ? 'active' : 'link-dark' }}" aria-current="{{ request()->is('pernyataans') ? 'page' : '' }}">
             Unggah Surat Pernyataan
             </a>
         </li>
