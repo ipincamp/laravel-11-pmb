@@ -8,13 +8,13 @@
                 <div class="card">
                     <h5 class="card-header">Kartu Keluarga</h5>
                     <div class="card-body">
-                        @if (!Storage::exists('raport/' . Auth::id() . '-semester1.jpg'))
+                        @if (!Storage::exists('dokumen/' . Auth::id() . '-kk.jpg'))
                             <div class="mb-3">
-                                <form action="{{ route('raports.store') }}" method="POST" enctype="multipart/form-data">
+                                <form action="{{ route('dokumens.store') }}" method="POST" enctype="multipart/form-data">
                                     @csrf
 
                                     <div class="input-group mb-3">
-                                        <input type="file" class="form-control" id="inputFile" name="semester1">
+                                        <input type="file" class="form-control" id="inputFile" name="kk">
                                         <label class="input-group-text" for="inputFile">Upload</label>
                                     </div>
                                     <div class="d-grid gap-2">
@@ -24,7 +24,7 @@
                             </div>
                         @else
                             <div class="mb-3">
-                                <img src="{{ asset('raport/') }}/{{ Auth::id() }}-semester1.jpg" alt="preview" width="100%" class="img-thumbnail">
+                                <img src="{{ asset('dokumen/') }}/{{ Auth::id() }}-kk.jpg" alt="preview" width="100%" class="img-thumbnail">
                             </div>
                         @endif
 
@@ -49,13 +49,13 @@
                 <div class="card">
                     <h5 class="card-header">Kartu Tanda Penduduk</h5>
                     <div class="card-body">
-                        @if (!Storage::exists('raport/' . Auth::id() . '-semester1.jpg'))
+                        @if (!Storage::exists('dokumen/' . Auth::id() . '-ktp.jpg'))
                             <div class="mb-3">
-                                <form action="{{ route('raports.store') }}" method="POST" enctype="multipart/form-data">
+                                <form action="{{ route('dokumens.store') }}" method="POST" enctype="multipart/form-data">
                                     @csrf
 
                                     <div class="input-group mb-3">
-                                        <input type="file" class="form-control" id="inputFile" name="semester1">
+                                        <input type="file" class="form-control" id="inputFile" name="ktp">
                                         <label class="input-group-text" for="inputFile">Upload</label>
                                     </div>
                                     <div class="d-grid gap-2">
@@ -65,7 +65,7 @@
                             </div>
                         @else
                             <div class="mb-3">
-                                <img src="{{ asset('raport/') }}/{{ Auth::id() }}-semester1.jpg" alt="preview" width="100%" class="img-thumbnail">
+                                <img src="{{ asset('dokumen/') }}/{{ Auth::id() }}-ktp.jpg" alt="preview" width="100%" class="img-thumbnail">
                             </div>
                         @endif
 
@@ -90,13 +90,13 @@
                 <div class="card">
                     <h5 class="card-header">Akte Kelahiran</h5>
                     <div class="card-body">
-                        @if (!Storage::exists('raport/' . Auth::id() . '-semester1.jpg'))
+                        @if (!Storage::exists('dokumen/' . Auth::id() . '-akte.jpg'))
                             <div class="mb-3">
-                                <form action="{{ route('raports.store') }}" method="POST" enctype="multipart/form-data">
+                                <form action="{{ route('dokumens.store') }}" method="POST" enctype="multipart/form-data">
                                     @csrf
 
                                     <div class="input-group mb-3">
-                                        <input type="file" class="form-control" id="inputFile" name="semester1">
+                                        <input type="file" class="form-control" id="inputFile" name="akte">
                                         <label class="input-group-text" for="inputFile">Upload</label>
                                     </div>
                                     <div class="d-grid gap-2">
@@ -106,7 +106,7 @@
                             </div>
                         @else
                             <div class="mb-3">
-                                <img src="{{ asset('raport/') }}/{{ Auth::id() }}-semester1.jpg" alt="preview" width="100%" class="img-thumbnail">
+                                <img src="{{ asset('dokumen/') }}/{{ Auth::id() }}-akte.jpg" alt="preview" width="100%" class="img-thumbnail">
                             </div>
                         @endif
 

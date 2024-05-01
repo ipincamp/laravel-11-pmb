@@ -21,7 +21,7 @@
             </a>
         </li>
         <li class="nav-item mb-2">
-            <a href="{{ url('dokumen') }}" class="nav-link {{ request()->is('dokumen') ? 'active' : 'link-dark' }}" aria-current="{{ request()->is('dokumen') ? 'page' : '' }}">
+            <a href="{{ url('dokumens') }}" class="nav-link {{ request()->is('dokumens') ? 'active' : 'link-dark' }}" aria-current="{{ request()->is('dokumens') ? 'page' : '' }}">
             Unggah Dokumen
             </a>
         </li>

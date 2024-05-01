@@ -32,9 +32,8 @@ Route::controller(App\Http\Controllers\UjianController::class)->group(function (
 });
 
 // dokumen: ktp, kk, akte
-Route::controller(App\Http\Controllers\DokumenController::class)->group(function () {
-    Route::get('/dokumen', 'index');
-});
+Route::get('/dokumens', [App\Http\Controllers\DokumenController::class, 'index']);
+Route::post('/dokumens', [App\Http\Controllers\DokumenController::class, 'store'])->name('dokumens.store');
 
 // pernyataan
 Route::get('/pernyataans', [App\Http\Controllers\PernyataanController::class, 'index']);
