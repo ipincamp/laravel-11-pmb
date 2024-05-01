@@ -21,6 +21,75 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
+## Installations
+
+1. Clone this repository.
+```bash
+git clone https://github.com/ipincamp/laravel-11-pmb.git
+```
+
+2. Enter the project directory
+```bash
+cd laravel-11-pmb
+```
+
+3. Run the following command to install the packages required by laravel
+```bash
+# Development
+composer install
+
+# Production
+composer install --prefer-dist --no-dev -o
+```
+
+4. Run this command (optional to install the library packages required by nodejs). Run if there are features that use assets from vite or other plugins like ReactJS or NextJS
+```bash
+# NPM
+npm install
+
+# Yarn
+yarn install
+```
+
+5. Now  copy the `.env.example` file and name it `.env` to use as the active environment.
+```bash
+# Windows
+copy .env.example .env
+
+# Linux
+cp .env.example .env
+```
+
+6. Generate key via artisan
+```bash
+php artisan key:generate
+```
+
+7. Run migrations
+```bash
+# For first time
+php artisan migrate
+
+# If the database already exists, but there is content
+php artisan migrate:fresh
+```
+
+8. Compile assets for the front-end using npm or yarn
+```bash
+# NPM
+npm run build
+
+# Yarn
+yarn run build
+```
+
+9. Start the server using artisan
+```bash
+php artisan serve
+```
+
+10. The server address will appear (`http://localhost:8000`) open it through the browser. Do what you want to do :}
+
 ## Learning Laravel
 
 Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
