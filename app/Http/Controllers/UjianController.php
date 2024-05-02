@@ -29,6 +29,14 @@ class UjianController extends Controller
 
     public function jawabSoal(Request $request)
     {
+        $jawaban = new Ujian();
+
+        $jawaban->responden = auth()->id();
+        $jawaban->soal1 = $request->soal1;
+        $jawaban->soal2 = $request->soal2;
+
+        $jawaban->save();
+
         return view('ujian-online.index');
     }
 }
