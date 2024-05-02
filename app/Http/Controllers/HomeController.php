@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -24,5 +25,11 @@ class HomeController extends Controller
     public function index()
     {
         return view('home');
+    }
+
+    public function printPdf()
+    {
+        $pdf = Pdf::loadView('pendaftaran.modals.add-mahasiswa', ['data' => 'Hello World!']); // untuk load dari file html / blade
+        return $pdf->download('invoice-download.pdf');
     }
 }

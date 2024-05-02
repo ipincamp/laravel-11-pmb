@@ -69,7 +69,7 @@
                                                 <li>
                                                     <p>Sebuah segitiga memiliki panjang alas 10 cm dan tinggi 8 cm. Luas
                                                         segitiga tersebut adalah...</p>
-                                                    <input type="text" class="form-control" id="jawaban2">
+                                                    <input type="text" class="form-control" id="jawaban2" name="soal2">
                                                 </li>
                                             </ol>
                                         </div>
