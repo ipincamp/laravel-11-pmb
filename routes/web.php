@@ -38,3 +38,6 @@ Route::post('/dokumens', [App\Http\Controllers\DokumenController::class, 'store'
 // pernyataan
 Route::get('/pernyataans', [App\Http\Controllers\PernyataanController::class, 'index']);
 Route::post('/pernyataans', [App\Http\Controllers\PernyataanController::class, 'store'])->name('pernyataans.store');
+
+// cetak formulir
+Route::get('/cetak', [App\Http\Controllers\HomeController::class, 'printPdf']);

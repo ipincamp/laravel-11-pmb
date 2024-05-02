@@ -74,7 +74,12 @@ php artisan migrate
 php artisan migrate:fresh
 ```
 
-8. Compile assets for the front-end using npm or yarn
+8. Run this to linked storage folder for asset
+```bash
+php artisan storage:link
+```
+
+9. Compile assets for the front-end using npm or yarn
 ```bash
 # NPM
 npm run build
@@ -83,12 +88,12 @@ npm run build
 yarn run build
 ```
 
-9. Start the server using artisan
+10. Start the server using artisan
 ```bash
 php artisan serve
 ```
 
-10. The server address will appear (`http://localhost:8000`) open it through the browser. Do what you want to do :}
+11. The server address will appear (`http://localhost:8000`) open it through the browser. Do what you want to do :}
 
 ## Learning Laravel
 
