@@ -39,5 +39,11 @@ Route::post('/dokumens', [App\Http\Controllers\DokumenController::class, 'store'
 Route::get('/pernyataans', [App\Http\Controllers\PernyataanController::class, 'index']);
 Route::post('/pernyataans', [App\Http\Controllers\PernyataanController::class, 'store'])->name('pernyataans.store');
 
-// cetak formulir
+// registrasi ulang
+Route::get('/registrasi-ulang', [App\Http\Controllers\RegistrasiUlangController::class, 'index']);
+
+// upload bukti pembayaran
+Route::resource('/bukti-pembayaran', App\Http\Controllers\BuktiPembayaranController::class);
+
+// cetak pengumuman
 Route::get('/cetak', [App\Http\Controllers\HomeController::class, 'printPdf']);

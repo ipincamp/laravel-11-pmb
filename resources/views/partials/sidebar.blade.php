@@ -31,12 +31,12 @@
             </a>
         </li>
         <li class="nav-item mb-2">
-            <a href="#" class="nav-link {{ request()->is('registrasi-ulang') ? 'active' : 'link-dark' }}" aria-current="{{ request()->is('registrasi-ulang') ? 'page' : '' }}">
+            <a href="{{ url('registrasi-ulang') }}" class="nav-link {{ request()->is('registrasi-ulang') ? 'active' : 'link-dark' }}" aria-current="{{ request()->is('registrasi-ulang') ? 'page' : '' }}">
             Registrasi Ulang
             </a>
         </li>
         <li class="nav-item mb-2">
-            <a href="#" class="nav-link {{ request()->is('konfirmasi-bayar-registrasi') ? 'active' : 'link-dark' }}" aria-current="{{ request()->is('konfirmasi-bayar-registrasi') ? 'page' : '' }}">
+            <a href="{{ url('bukti-pembayaran') }}" class="nav-link {{ request()->is('bukti-pembayaran') ? 'active' : 'link-dark' }}" aria-current="{{ request()->is('bukti-pembayaran') ? 'page' : '' }}">
             Konfirmasi Bayar Registrasi
             </a>
         </li>

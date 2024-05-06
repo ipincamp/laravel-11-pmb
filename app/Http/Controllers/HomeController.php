@@ -29,7 +29,12 @@ class HomeController extends Controller
 
     public function printPdf()
     {
-        $pdf = Pdf::loadView('pendaftaran.modals.add-mahasiswa', ['data' => 'Hello World!']); // untuk load dari file html / blade
-        return $pdf->download('invoice-download.pdf');
+        $pdf = Pdf::loadView('pengumuman', [
+            'diterima' => true,
+            'nama' => auth()->user()->name,
+            'nim' => 220113006,
+            'prodi' => 'Teknologi Informasi',
+        ]);
+        return $pdf->download('Pengumuman-'. auth()->user()->name .'.pdf');
     }
 }
