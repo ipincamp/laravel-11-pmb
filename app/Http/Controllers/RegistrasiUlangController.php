@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CalonMahasiswa;
+use App\Models\Sekolah;
+use App\Models\WaliOrangTua;
 use Illuminate\Http\Request;
 
 class RegistrasiUlangController extends Controller
@@ -11,7 +14,11 @@ class RegistrasiUlangController extends Controller
      */
     public function index()
     {
-        return view('registrasi-ulang.index');
+        $sekolahs = Sekolah::all();
+        $mahasiswas = CalonMahasiswa::all();
+        $orangtuas = WaliOrangTua::all();
+
+        return view('registrasi-ulang.index',  compact('sekolahs', 'mahasiswas', 'orangtuas'));
     }
 
     /**
