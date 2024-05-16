@@ -47,3 +47,15 @@ Route::resource('/bukti-pembayaran', App\Http\Controllers\BuktiPembayaranControl
 
 // cetak pengumuman
 Route::get('/cetak', [App\Http\Controllers\HomeController::class, 'printPdf']);
+
+
+use App\Http\Controllers\FormulirController;
+use App\Http\Controllers\RegistrasiUlangController;
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/pendaftaran', [FormulirController::class, 'index'])->name('pendaftaran.index');
+    Route::post('/pendaftaran/mahasiswa', [FormulirController::class, 'addMahasiswa'])->name('pendaftaran.addMahasiswa');
+    Route::post('/pendaftaran/orangtua', [FormulirController::class, 'addOrangTuaWali'])->name('pendaftaran.addOrangTuaWali');
+
+    Route::get('/registrasi-ulang', [RegistrasiUlangController::class, 'index'])->name('registrasi-ulang.index');
+});
