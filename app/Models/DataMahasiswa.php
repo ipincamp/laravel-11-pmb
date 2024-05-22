@@ -2,26 +2,23 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class CalonMahasiswa extends Model
+class DataMahasiswa extends Model
 {
-    use HasFactory;
-
     protected $fillable = [
-        'email',
-        'nama',
         'tempat_lahir',
         'tanggal_lahir',
         'jenis_kelamin',
-        'alamat',
         'agama',
-        'rt_rw',
+        'alamat',
+        'rt',
+        'rw',
         'kelurahan',
         'kecamatan',
-        'kabupaten_kota',
+        'kabupaten',
         'provinsi',
         'no_hp',
+        'user_id',
     ];
 }

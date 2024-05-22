@@ -2,18 +2,16 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Sekolah extends Model
+class DataSekolah extends Model
 {
-    use HasFactory;
-
     protected $fillable = [
         'nisn',
         'nama',
         'alamat',
         'derajat',
         'jurusan',
+        'mahasiswa_id',
     ];
 }
