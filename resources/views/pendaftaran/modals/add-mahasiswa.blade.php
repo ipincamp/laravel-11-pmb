@@ -13,23 +13,21 @@
 
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="email" name="email">
+                        <label for="tempat_lahir" class="form-label tooltip-text" data-bs-toggle="tooltip" data-bs-placement="top" title="This field is required">
+                            Tempat Lahir<span class="text-danger">*</span>
+                        </label>
+                        <input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir" required>
                     </div>
                     <div class="mb-3">
-                        <label for="nama" class="form-label">Nama</label>
-                        <input type="text" class="form-control" id="nama" name="nama">
+                        <label for="tanggal_lahir" class="form-label tooltip-text" data-bs-toggle="tooltip" data-bs-placement="top" title="This field is required">
+                            Tanggal Lahir<span class="text-danger">*</span>
+                        </label>
+                        <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" required>
                     </div>
                     <div class="mb-3">
-                        <label for="tempat lahir" class="form-label">Tempat Lahir</label>
-                        <input type="text" class="form-control" id="tempat lahir" name="tempat_lahir">
-                    </div>
-                    <div class="mb-3">
-                        <label for="tanggal_lahir" class="form-label">Tanggal Lahir</label>
-                        <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir">
-                    </div>
-                    <div class="mb-3">
-                        <label for="jenis_kelamin" class="form-label">Jenis Kelamin</label>
+                        <label for="jenis_kelamin" class="form-label tooltip-text" data-bs-toggle="tooltip" data-bs-placement="top" title="This field is required">
+                            Jenis Kelamin<span class="text-danger">*</span>
+                        </label>
                         <select class="form-select" id="jenis_kelamin" name="jenis_kelamin">
                             <option selected>Pilih Jenis Kelamin</option>
                             <option value="L">Laki-laki</option>
@@ -37,36 +35,51 @@
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label for="alamat" class="form-label">Alamat</label>
-                        <input type="text" class="form-control" id="alamat" name="alamat">
+                        <label for="alamat" class="form-label tooltip-text" data-bs-toggle="tooltip" data-bs-placement="top" title="This field is required">
+                            Alamat<span class="text-danger">*</span>
+                        </label>
+                        <input type="text" class="form-control" id="alamat" name="alamat" required>
                     </div>
                     <div class="mb-3">
-                        <label for="agama" class="form-label">Agama</label>
-                        <input type="text" class="form-control" id="agama" name="agama">
+                        <label for="agama" class="form-label tooltip-text" data-bs-toggle="tooltip" data-bs-placement="top" title="This field is required">
+                            Agama<span class="text-danger">*</span>
+                        </label>
+                        <input type="text" class="form-control" id="agama" name="agama" required>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="number" class="form-control" placeholder="RT" aria-label="RT" name="rt" required>
+                        <span class="input-group-text">/</span>
+                        <input type="number" class="form-control" placeholder="RW" aria-label="RW" name="rw" required>
                     </div>
                     <div class="mb-3">
-                        <label for="rt_rw" class="form-label">Rt/Rw</label>
-                        <input type="text" class="form-control" id="rt_rw" name="rt_rw">
+                        <label for="kelurahan" class="form-label tooltip-text" data-bs-toggle="tooltip" data-bs-placement="top" title="This field is required">
+                            Kelurahan<span class="text-danger">*</span>
+                        </label>
+                        <input type="text" class="form-control" id="kelurahan" name="kelurahan" required>
                     </div>
                     <div class="mb-3">
-                        <label for="kelurahan" class="form-label">Kelurahan</label>
-                        <input type="text" class="form-control" id="kelurahan" name="kelurahan">
+                        <label for="kecamatan" class="form-label tooltip-text" data-bs-toggle="tooltip" data-bs-placement="top" title="This field is required">
+                            Kecamatan<span class="text-danger">*</span>
+                        </label>
+                        <input type="text" class="form-control" id="kecamatan" name="kecamatan" required>
                     </div>
                     <div class="mb-3">
-                        <label for="kecamatan" class="form-label">Kecamatan</label>
-                        <input type="text" class="form-control" id="kecamatan" name="kecamatan">
+                        <label for="kabupaten_kota" class="form-label tooltip-text" data-bs-toggle="tooltip" data-bs-placement="top" title="This field is required">
+                            Kabupaten / Kota<span class="text-danger">*</span>
+                        </label>
+                        <input type="text" class="form-control" id="kabupaten_kota" name="kabupaten" required>
                     </div>
                     <div class="mb-3">
-                        <label for="kabupaten_kota" class="form-label">Kabupaten Kota</label>
-                        <input type="text" class="form-control" id="kabupaten_kota" name="kabupaten_kota">
+                        <label for="provinsi" class="form-label tooltip-text" data-bs-toggle="tooltip" data-bs-placement="top" title="This field is required">
+                            Provinsi<span class="text-danger">*</span>
+                        </label>
+                        <input type="text" class="form-control" id="provinsi" name="provinsi" required>
                     </div>
                     <div class="mb-3">
-                        <label for="provinsi" class="form-label">Provinsi</label>
-                        <input type="text" class="form-control" id="provinsi" name="provinsi">
-                    </div>
-                    <div class="mb-3">
-                        <label for="no_hp" class="form-label">No Hp</label>
-                        <input type="text" class="form-control" id="no_hp" name="no_hp">
+                        <label for="no_hp" class="form-label tooltip-text" data-bs-toggle="tooltip" data-bs-placement="top" title="This field is required">
+                            Nomor HP / WA<span class="text-danger">*</span>
+                        </label>
+                        <input type="text" class="form-control" id="no_hp" name="no_hp" required>
                     </div>
                 </div>
 

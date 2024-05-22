@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\CalonMahasiswa;
-use App\Models\Sekolah;
-use App\Models\WaliOrangTua;
+use App\Models\DataMahasiswa;
+use App\Models\DataOrtuWali;
+use App\Models\DataSekolah;
 use Illuminate\Http\Request;
 
 class FormulirController extends Controller
@@ -24,11 +24,11 @@ class FormulirController extends Controller
      */
     public function index()
     {
-        $sekolahs = Sekolah::all();
-        $mahasiswas = CalonMahasiswa::all();
-        $orangtuas = WaliOrangTua::all();
+        $sekolah = DataSekolah::with('mahasiswa')->first();
+        $mahasiswa = DataMahasiswa::with('user')->first();
+        $orangtua = DataOrtuWali::with('mahasiswa')->first();
 
-        return view('pendaftaran.index', compact('sekolahs', 'mahasiswas', 'orangtuas'));
+        return view('pendaftaran.index', compact('sekolah', 'mahasiswa', 'orangtua'));
     }
 
     /**
@@ -37,13 +37,23 @@ class FormulirController extends Controller
      */
     public function addSekolah(Request $request)
     {
-        $sekolah = new Sekolah();
+        $request->validate([
+            'nisn' => 'required|integer',
+            'nama' => 'required|string',
+            'alamat' => 'required|string',
+            'derajat' => 'required|string',
+            'jurusan' => 'required|string',
+        ]);
+
+        $mahasiswa = DataMahasiswa::where('user_id', auth()->user()->id);
+        $sekolah = new DataSekolah();
 
         $sekolah->nisn = $request->nisn;
-        $sekolah->derajat = $request->derajat;
         $sekolah->nama = $request->nama;
-        $sekolah->jurusan = $request->jurusan;
         $sekolah->alamat = $request->alamat;
+        $sekolah->derajat = $request->derajat;
+        $sekolah->jurusan = $request->jurusan;
+        $sekolah->mahasiswa_id = $mahasiswa->first()->id;
         $sekolah->save();
 
         return redirect()->back();
@@ -55,22 +65,36 @@ class FormulirController extends Controller
      */
     public function addMahasiswa(Request $request)
     {
-        // dd($request->all());
-        $mahasiswa = new CalonMahasiswa();
+        $request->validate([
+            'tempat_lahir' => 'required|string',
+            'tanggal_lahir' => 'required|date',
+            'jenis_kelamin' => 'required|string',
+            'agama' => 'required|string',
+            'alamat' => 'required|string',
+            'rt' => 'required|integer',
+            'rw' => 'required|integer',
+            'kelurahan' => 'required|string',
+            'kecamatan' => 'required|string',
+            'kabupaten' => 'required|string',
+            'provinsi' => 'required|string',
+            'no_hp' => 'required|string',
+        ]);
 
-        $mahasiswa->email = $request->email;
-        $mahasiswa->nama = $request->nama;
+        $mahasiswa = new DataMahasiswa();
+
         $mahasiswa->tempat_lahir = $request->tempat_lahir;
         $mahasiswa->tanggal_lahir = $request->tanggal_lahir;
         $mahasiswa->jenis_kelamin = $request->jenis_kelamin;
-        $mahasiswa->alamat = $request->alamat;
         $mahasiswa->agama = $request->agama;
-        $mahasiswa->rt_rw = $request->rt_rw;
+        $mahasiswa->alamat = $request->alamat;
+        $mahasiswa->rt = $request->rt;
+        $mahasiswa->rw = $request->rw;
         $mahasiswa->kelurahan = $request->kelurahan;
         $mahasiswa->kecamatan = $request->kecamatan;
-        $mahasiswa->kabupaten_kota = $request->kabupaten_kota;
+        $mahasiswa->kabupaten = $request->kabupaten;
         $mahasiswa->provinsi = $request->provinsi;
         $mahasiswa->no_hp = $request->no_hp;
+        $mahasiswa->user_id = auth()->user()->id;
         $mahasiswa->save();
 
         return redirect()->back();
@@ -82,7 +106,9 @@ class FormulirController extends Controller
      */
     public function addOrangTuaWali(Request $request)
     {
-        $orangtua = new WaliOrangTua();
+        // TODO: Add validation
+
+        $orangtua = new DataOrtuWali();
 
         $orangtua->untuk = $request->hubungan;
         $orangtua->nama_ayah = $request->nama_ayah;
@@ -91,37 +117,5 @@ class FormulirController extends Controller
         $orangtua->save();
 
         return redirect()->back();
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
     }
 }

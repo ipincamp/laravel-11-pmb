@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class DataOrtuWali extends Model
 {
@@ -15,4 +16,14 @@ class DataOrtuWali extends Model
         'no_hp_wali',
         'mahasiswa_id',
     ];
+
+    /**
+     * Get the mahasiswa that owns the DataOrtuWali
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function mahasiswa(): BelongsTo
+    {
+        return $this->belongsTo(DataMahasiswa::class, 'mahasiswa_id', 'id');
+    }
 }

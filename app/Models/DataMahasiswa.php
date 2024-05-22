@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class DataMahasiswa extends Model
 {
@@ -21,4 +22,14 @@ class DataMahasiswa extends Model
         'no_hp',
         'user_id',
     ];
+
+    /**
+     * Get the user that owns the DataMahasiswa
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
 }
