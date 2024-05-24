@@ -11,12 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('wali_orang_tuas', function (Blueprint $table) {
+        Schema::create('data_paths', function (Blueprint $table) {
             $table->id();
-            $table->enum('untuk', ['ortu', 'wali']);
-            $table->string('nama_ayah', 100);
-            $table->string('nama_ibu', 100);
-            $table->string('no_hp', 15);
+            $table->string('label', 200);
+            $table->string('path', 255);
+            $table->unsignedBigInteger('mahasiswa_id');
             $table->timestamps();
         });
     }
@@ -26,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('wali_orang_tuas');
+        Schema::dropIfExists('data_paths');
     }
 };

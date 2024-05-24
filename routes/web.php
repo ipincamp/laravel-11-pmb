@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\FormulirController;
+use App\Http\Controllers\RegistrasiUlangController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -7,7 +9,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Auth::routes([
+    'verify' => false,
+    'reset' => false,
+]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/bantuan', [App\Http\Controllers\HelpController::class, 'index'])->name('bantuan');
@@ -47,10 +52,6 @@ Route::resource('/bukti-pembayaran', App\Http\Controllers\BuktiPembayaranControl
 
 // cetak pengumuman
 Route::get('/cetak', [App\Http\Controllers\HomeController::class, 'printPdf']);
-
-
-use App\Http\Controllers\FormulirController;
-use App\Http\Controllers\RegistrasiUlangController;
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/pendaftaran', [FormulirController::class, 'index'])->name('pendaftaran.index');
