@@ -26,6 +26,7 @@ class DataMahasiswa extends Model
         'kecamatan',
         'kabupaten',
         'provinsi',
+        'kode_pos',
         'no_hp',
         'user_id',
     ];
