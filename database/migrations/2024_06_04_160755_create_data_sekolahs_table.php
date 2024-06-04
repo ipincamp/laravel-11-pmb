@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->integer('nisn')->unique();
             $table->string('nama');
-            $table->string('alamat');
+            $table->integer('tahun_lulus');
             $table->enum('derajat', ['MA', 'SMA', 'SMK']);
             $table->string('jurusan');
             $table->foreignId('mahasiswa_id')->constrained(

@@ -17,7 +17,7 @@ class DataSekolah extends Model
     protected $fillable = [
         'nisn',
         'nama',
-        'alamat',
+        'tahun_lulus',
         'derajat',
         'jurusan',
         'mahasiswa_id',
