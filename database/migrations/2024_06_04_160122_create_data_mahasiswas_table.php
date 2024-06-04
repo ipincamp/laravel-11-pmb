@@ -27,7 +27,7 @@ return new class extends Migration
             $table->string('no_hp');
             $table->foreignId('user_id')->constrained(
                 table: 'users',
-                indexName: 'user_id_fk',
+                indexName: 'data_mahasiswas_user_id_fk',
             )->onDelete('cascade');
             $table->timestamps();
         });

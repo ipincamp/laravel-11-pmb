@@ -11,16 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('data_sekolahs', function (Blueprint $table) {
+        Schema::create('data_orang_tuas', function (Blueprint $table) {
             $table->id();
-            $table->integer('nisn')->unique();
-            $table->string('nama');
-            $table->string('alamat');
-            $table->enum('derajat', ['MA', 'SMA', 'SMK']);
-            $table->string('jurusan');
+            $table->string('nama_ayah');
+            $table->string('nama_ibu');
+            $table->string('no_hp_ortu');
             $table->foreignId('mahasiswa_id')->constrained(
                 table: 'data_mahasiswas',
-                indexName: 'data_sekolahs_mahasiswa_id_fk',
+                indexName: 'data_orang_tuas_mahasiswa_id_fk',
             )->onDelete('cascade');
             $table->timestamps();
         });
@@ -31,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('data_sekolahs');
+        Schema::dropIfExists('data_orang_tuas');
     }
 };
