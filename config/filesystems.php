@@ -70,9 +70,7 @@ return [
     */
 
     'links' => [
-        public_path('raport')=> storage_path('app/raport'),
-        public_path('pernyataan')=> storage_path('app/pernyataan'),
-        public_path('dokumen')=> storage_path('app/dokumen'),
+        public_path('storage') => storage_path('app/public'),
     ],
 
 ];
