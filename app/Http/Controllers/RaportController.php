@@ -52,6 +52,6 @@ class RaportController extends Controller
             }
         }
 
-        return back()->with('success', 'File has been successfully uploaded. path' . $path);
+        return back()->with('success', 'File has been successfully uploaded.');
     }
 }
