@@ -38,7 +38,7 @@
                             </div>
                         @else
                             <div class="mb-3">
-                                <img src="{{ asset('raport/') }}/{{ Auth::id() }}-semester1.jpg" alt="preview" width="100%" class="img-thumbnail">
+                                <img src="{{ asset('raport/') }}/{{ Auth::id() }}-semester1.jpg" alt="preview" class="img-thumbnail" style="max-height: 50%" />
                             </div>
                         @endif
                     </div>
@@ -66,7 +66,7 @@
                             </div>
                         @else
                             <div class="mb-3">
-                                <img src="{{ asset('raport/') }}/{{ Auth::id() }}-semester2.jpg" alt="preview" width="100%" class="img-thumbnail">
+                                <img src="{{ asset('raport/') }}/{{ Auth::id() }}-semester2.jpg" alt="preview" class="img-thumbnail" style="max-height: 50%" />
                             </div>
                         @endif
                     </div>
@@ -98,7 +98,7 @@
                             </div>
                         @else
                             <div class="mb-3">
-                                <img src="{{ asset('raport/') }}/{{ Auth::id() }}-semester3.jpg" alt="preview" width="100%" class="img-thumbnail">
+                                <img src="{{ asset('raport/') }}/{{ Auth::id() }}-semester3.jpg" alt="preview" class="img-thumbnail" style="max-height: 50%" />
                             </div>
                         @endif
                     </div>
@@ -126,7 +126,7 @@
                             </div>
                         @else
                             <div class="mb-3">
-                                <img src="{{ asset('raport/') }}/{{ Auth::id() }}-semester4.jpg" alt="preview" width="100%" class="img-thumbnail">
+                                <img src="{{ asset('raport/') }}/{{ Auth::id() }}-semester4.jpg" alt="preview" class="img-thumbnail" style="max-height: 50%" />
                             </div>
                         @endif
                     </div>
