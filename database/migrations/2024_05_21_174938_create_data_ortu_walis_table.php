@@ -13,12 +13,10 @@ return new class extends Migration
     {
         Schema::create('data_ortu_walis', function (Blueprint $table) {
             $table->id();
-            $table->string('ortu_ayah', 100)->nullable();
-            $table->string('ortu_ibu', 100)->nullable();
-            $table->string('no_hp_ortu', 15)->nullable();
-            $table->string('wali_ayah', 100)->nullable();
-            $table->string('wali_ibu', 100)->nullable();
-            $table->string('no_hp_wali', 15)->nullable();
+            $table->enum('untuk', ['orang_tua', 'wali'])->default('orang_tua');
+            $table->string('nama_ayah', 100)->nullable();
+            $table->string('nama_ibu', 100)->nullable();
+            $table->string('no_hp', 15)->nullable();
             $table->unsignedBigInteger('mahasiswa_id');
             $table->timestamps();
         });

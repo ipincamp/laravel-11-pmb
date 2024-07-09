@@ -8,12 +8,10 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class DataOrtuWali extends Model
 {
     protected $fillable = [
-        'ortu_ayah',
-        'ortu_ibu',
-        'no_hp_ortu',
-        'wali_ayah',
-        'wali_ibu',
-        'no_hp_wali',
+        'untuk',
+        'nama_ayah',
+        'nama_ibu',
+        'no_hp',
         'mahasiswa_id',
     ];
 

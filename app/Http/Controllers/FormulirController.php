@@ -106,14 +106,20 @@ class FormulirController extends Controller
      */
     public function addOrangTuaWali(Request $request)
     {
-        // TODO: Add validation
+        $request->validate([
+            'untuk' => ['required', 'string'],
+            'nama_ayah' => ['required', 'string'],
+            'nama_ibu' => ['required', 'string'],
+            'no_hp' => ['required', 'integer'],
+        ]);
 
         $orangtua = new DataOrtuWali();
 
-        $orangtua->untuk = $request->hubungan;
+        $orangtua->untuk = $request->untuk;
         $orangtua->nama_ayah = $request->nama_ayah;
         $orangtua->nama_ibu = $request->nama_ibu;
         $orangtua->no_hp = $request->no_hp;
+        $orangtua->mahasiswa_id = DataMahasiswa::where('user_id', auth()->user()->id)->first()->id;
         $orangtua->save();
 
         return redirect()->back();
