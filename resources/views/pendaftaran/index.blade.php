@@ -31,7 +31,7 @@
                     <div class="card-header">{{ __('Data Calon Mahasiswa') }}</div>
                     <div class="card-body">
                         <form>
-                            @if ($mahasiswa)
+                            @if (isset($mahasiswa) && $mahasiswa)
                                 <div class="mb-2">
                                     <label for="inputNama" class="form-label">Nama Lengkap</label>
                                     <input type="text" id="inputNama" class="form-control"
@@ -127,7 +127,7 @@
 
                     <div class="card-body">
                         <form>
-                            @if ($kelengkapan)
+                            @if (isset($kelengkapan) && $kelengkapan)
                                 {{-- pilihan 1 --}}
                                 <div class="mb-2">
                                     <label for="inputProdi1" class="form-label">Pilihan 1</label>
@@ -170,7 +170,7 @@
                     <div class="card-header">{{ __('Data Orang Tua / Wali') }}</div>
                     <div class="card-body">
                         <form>
-                            @if ($orangtua)
+                            @if (isset($orangtua) && $orangtua)
                                 <div class="mb-2">
                                     <label for="inputUntuk" class="form-label">Hubungan</label>
                                     <input type="text" id="inputUntuk" class="form-control"
@@ -216,7 +216,7 @@
 
                     <div class="card-body">
                         <form>
-                            @if ($sekolah)
+                            @if (isset($sekolah) && $sekolah)
                                 <div class="mb-3">
                                     <label for="nisn" class="form-label">NISN</label>
                                     <input type="number" id="nisn" class="form-control" value="{{ $sekolah->nisn }}" readonly>
@@ -253,16 +253,8 @@
         </div>
     </div>
 
-    @if (!boolval($kelengkapan))
-        @include('pendaftaran.modals.add-prodi')
-    @endif
-    @if (!boolval($sekolah))
-        @include('pendaftaran.modals.add-sekolah')
-    @endif
-    @if (!boolval($mahasiswa))
-        @include('pendaftaran.modals.add-mahasiswa')
-    @endif
-    @if (!boolval($orangtua))
-        @include('pendaftaran.modals.add-orangtuawali');
-    @endif
+    @include('pendaftaran.modals.add-prodi')
+    @include('pendaftaran.modals.add-sekolah')
+    @include('pendaftaran.modals.add-mahasiswa')
+    @include('pendaftaran.modals.add-orangtuawali');
 @endsection

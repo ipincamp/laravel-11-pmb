@@ -30,9 +30,11 @@ class FormulirController extends Controller
         $orangtua = DataOrtuWali::with('mahasiswa')->first();
         $kelengkapan = Kelengkapan::with('mahasiswa')->first();
 
-        $kelengkapan->opsi_1 = ucwords(str_replace('_', ' ', $kelengkapan->opsi_1));
-        $kelengkapan->opsi_2 = ucwords(str_replace('_', ' ', $kelengkapan->opsi_2));
-        $kelengkapan->opsi_3 = ucwords(str_replace('_', ' ', $kelengkapan->opsi_3));
+        if ($kelengkapan) {
+            $kelengkapan->opsi_1 = ucwords(str_replace('_', ' ', $kelengkapan->opsi_1));
+            $kelengkapan->opsi_2 = ucwords(str_replace('_', ' ', $kelengkapan->opsi_2));
+            $kelengkapan->opsi_3 = ucwords(str_replace('_', ' ', $kelengkapan->opsi_3));
+        }
 
         return view('pendaftaran.index', compact('sekolah', 'mahasiswa', 'orangtua', 'kelengkapan'));
     }

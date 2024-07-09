@@ -2,6 +2,21 @@
 
 @section('content')
     <div class="container">
+
+        @if(session('success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ session('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        @endif
+
+        @if(session('error'))
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            {{ session('error') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        @endif
+
         <div class="row justify-content-center mt-3">
             <div class="col-md-10">
                 <div class="mb-2 d-flex justify-content-between align-items-center">
@@ -16,23 +31,25 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Nama</th>
-                                <th>Bank</th>
-                                <th>Nominal</th>
+                                <th>Metode</th>
+                                <th>Tujuan</th>
+                                <th>Jumlah</th>
+                                <th>Tanggal Bayar</th>
                                 <th>Bukti</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($sampleData as $b)
+                            @foreach($buktis as $bukti)
                             <tr>
-                                <td style="width: 5%">{{ $loop->iteration }}</td>
-                                <td style="width: 25%">{{ $b['nama'] }}</td>
-                                <td style="width: 10%">{{ $b['bank'] }}</td>
-                                <td style="width: 20%">{{ $b['nominal'] }}</td>
-                                <td style="width: 10%">
-                                    <button class="btn btn-sm btn-primary" onclick="window.open('{{ asset('storage/bukti/' . $b['bukti']) }}', '_blank')">
-                                        <i class="fa fa-eye"></i> Lihat Bukti
-                                    </button>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $bukti->metode }}</td>
+                                <td>{{ $bukti->tujuan }}</td>
+                                <td>{{ $bukti->jumlah }}</td>
+                                <td>{{ $bukti->tanggal_bayar }}</td>
+                                <td>
+                                    <a href="{{ $bukti->bukti }}" target="_blank">
+                                        <img src="dokumen/{{ $bukti->bukti }}" alt="Bukti Pembayaran" class="img-thumbnail" style="width: 100px;">
+                                    </a>
                                 </td>
                             </tr>
                             @endforeach

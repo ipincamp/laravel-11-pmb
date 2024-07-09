@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DataMahasiswa;
+use App\Models\UploadBukti;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class BuktiPembayaranController extends Controller
 {
@@ -11,36 +16,9 @@ class BuktiPembayaranController extends Controller
      */
     public function index()
     {
-        $sampleData = [
-            [
-                'nama' => 'Budi',
-                'bank' => 'BNI',
-                'nominal' => 100000,
-                'bukti' => 'bukti-tf-1.jpg',
-            ],
-            [
-                'nama' => 'Ani',
-                'bank' => 'BRI',
-                'nominal' => 200000,
-                'bukti' => 'bukti-tf-2.jpg',
-            ],
-            [
-                'nama' => 'Cici',
-                'bank' => 'BCA',
-                'nominal' => 300000,
-                'bukti' => 'bukti-tf-3.jpg',
-            ],
-        ];
+        $buktis = UploadBukti::with('mahasiswa')->get();
 
-        return view('unggah-bukti-tf.index', compact('sampleData'));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+        return view('unggah-bukti-tf.index', compact('buktis'));
     }
 
     /**
@@ -48,37 +26,33 @@ class BuktiPembayaranController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'metode' => 'required|string',
+            'tujuan' => 'required|string',
+            'jumlah' => 'required|integer',
+            'tanggal_bayar' => 'required',
+            'file' => 'mimes:png,jpg,jpeg|max:2048',
+        ]);
+
+        $filename = auth()->user()->id . '-bukti-' . time() . '.jpg';
+        $path = Storage::putFileAs('dokumen', $request->file('file'), $filename);
+
+        $bukti = new UploadBukti();
+        $bukti->metode = $request->metode;
+        $bukti->tujuan = $request->tujuan;
+        $bukti->jumlah = $request->jumlah;
+        $bukti->tanggal_bayar = $request->tanggal_bayar;
+        $bukti->bukti = $filename;
+        $bukti->mahasiswa_id = DataMahasiswa::where('user_id', auth()->user()->id)->first()->id;
+        $bukti->save();
+
+        return redirect()->route('bukti-pembayaran.index')->with('success', 'Bukti pembayaran berhasil diunggah');
     }
 
     /**
      * Display the specified resource.
      */
     public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
     {
         //
     }

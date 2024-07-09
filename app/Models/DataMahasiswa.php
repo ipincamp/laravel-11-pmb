@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class DataMahasiswa extends Model
 {
@@ -31,5 +32,15 @@ class DataMahasiswa extends Model
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class, 'user_id', 'id');
+    }
+
+    /**
+     * Get all of the uploadBuktis for the DataMahasiswa
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function uploadBukti(): HasMany
+    {
+        return $this->hasMany(UploadBukti::class, 'mahasiswa_id', 'id');
     }
 }

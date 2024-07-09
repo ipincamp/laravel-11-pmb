@@ -8,42 +8,37 @@
             </div>
 
             <!-- Form tambah data -->
-            <form method="post" action="{{ url('formulir/prodi') }}">
+            <form method="POST" action="{{ route('bukti-pembayaran.store') }}" enctype="multipart/form-data">
                 @csrf
 
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label for="pilihan1" class="form-label">
-                            Pilihan 1 <span class="text-danger">*</span>
-                        </label>
-                        <select class="form-select" id="pilihan1" name="pilihan1">
-                            <option selected>Pilih...</option>
-                            <option value="informatika">Informatika</option>
-                            <option value="sistem_informasi">Sistem Informasi</option>
-                            <option value="teknologi_informasi">Teknologi Informasi</option>
+                        <label for="metode" class="form-label">Metode Pembayaran</label>
+                        <select class="form-select" id="metode" name="metode" required>
+                            <option value="">Pilih Metode Pembayaran</option>
+                            <option value="transfer">Transfer</option>
+                            <option value="cash">Tunai</option>
                         </select>
                     </div>
+
                     <div class="mb-3">
-                        <label for="pilihan2" class="form-label">
-                            Pilihan 2 <span class="text-danger">*</span>
-                        </label>
-                        <select class="form-select" id="pilihan2" name="pilihan2">
-                            <option selected>Pilih...</option>
-                            <option value="informatika">Informatika</option>
-                            <option value="sistem_informasi">Sistem Informasi</option>
-                            <option value="teknologi_informasi">Teknologi Informasi</option>
-                        </select>
+                        <label for="tujuan" class="form-label">Tujuan Pembayaran</label>
+                        <input type="text" class="form-control" id="tujuan" name="tujuan" required>
                     </div>
+
                     <div class="mb-3">
-                        <label for="pilihan3" class="form-label">
-                            Pilihan 3 <span class="text-danger">*</span>
-                        </label>
-                        <select class="form-select" id="pilihan3" name="pilihan3">
-                            <option selected>Pilih...</option>
-                            <option value="informatika">Informatika</option>
-                            <option value="sistem_informasi">Sistem Informasi</option>
-                            <option value="teknologi_informasi">Teknologi Informasi</option>
-                        </select>
+                        <label for="jumlah" class="form-label">Jumlah Pembayaran</label>
+                        <input type="number" class="form-control" id="jumlah" name="jumlah" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="tanggal_bayar" class="form-label">Tanggal Bayar</label>
+                        <input type="date" class="form-control" id="tanggal_bayar" name="tanggal_bayar" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="bukti" class="form-label">Bukti Pembayaran</label>
+                        <input type="file" class="form-control" id="bukti" name="file" required>
                     </div>
                 </div>
 
