@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\CalonMahasiswa;
-use App\Models\WaliOrangTua;
-use App\Models\Sekolah;
+use App\Models\DataMahasiswa;
+use App\Models\DataOrtuWali;
+use App\Models\DataSekolah;
 
 class RegistrasiUlangController extends Controller
 {
@@ -13,9 +13,9 @@ class RegistrasiUlangController extends Controller
      */
     public function index()
     {
-        $mahasiswas = CalonMahasiswa::first();
-        $orangtuas = WaliOrangTua::first();
-        $sekolahs = Sekolah::first();
+        $mahasiswas = DataMahasiswa::first();
+        $orangtuas = DataOrtuWali::first();
+        $sekolahs = DataSekolah::first();
 
         return view('registrasi-ulang.index', compact(['orangtuas', 'mahasiswas','sekolahs']));
     }

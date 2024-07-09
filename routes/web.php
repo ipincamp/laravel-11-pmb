@@ -20,6 +20,7 @@ Route::get('/bantuan', [App\Http\Controllers\HelpController::class, 'index'])->n
 // formulir pendaftaran
 Route::controller(App\Http\Controllers\FormulirController::class)->group(function () {
     Route::get('/formulir', 'index');
+    Route::post('/formulir/prodi', 'addProdi');
     Route::post('/formulir/sekolah', 'addSekolah');
     Route::post('/formulir/mahasiswa', 'addMahasiswa');
     Route::post('/formulir/orangtuawali', 'addOrangTuaWali');

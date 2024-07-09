@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\DataMahasiswa;
 use App\Models\DataOrtuWali;
 use App\Models\DataSekolah;
+use App\Models\Kelengkapan;
 use Illuminate\Http\Request;
 
 class FormulirController extends Controller
@@ -27,8 +28,45 @@ class FormulirController extends Controller
         $sekolah = DataSekolah::with('mahasiswa')->first();
         $mahasiswa = DataMahasiswa::with('user')->first();
         $orangtua = DataOrtuWali::with('mahasiswa')->first();
+        $kelengkapan = Kelengkapan::with('mahasiswa')->first();
 
-        return view('pendaftaran.index', compact('sekolah', 'mahasiswa', 'orangtua'));
+        $kelengkapan->opsi_1 = ucwords(str_replace('_', ' ', $kelengkapan->opsi_1));
+        $kelengkapan->opsi_2 = ucwords(str_replace('_', ' ', $kelengkapan->opsi_2));
+        $kelengkapan->opsi_3 = ucwords(str_replace('_', ' ', $kelengkapan->opsi_3));
+
+        return view('pendaftaran.index', compact('sekolah', 'mahasiswa', 'orangtua', 'kelengkapan'));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     * Kelengkapan
+     */
+    public function addProdi(Request $request)
+    {
+        $request->validate([
+            'pilihan1' => 'required|string',
+            'pilihan2' => 'required|string',
+            'pilihan3' => 'required|string',
+        ]);
+
+        $kelengkapan = Kelengkapan::where('mahasiswa_id', DataMahasiswa::where('user_id', auth()->user()->id)->first()->id);
+        if ($kelengkapan->exists()) {
+            $kelengkapan->update([
+                'opsi_1' => $request->pilihan1,
+                'opsi_2' => $request->pilihan2,
+                'opsi_3' => $request->pilihan3,
+            ]);
+        } else {
+            $kelengkapan = new Kelengkapan();
+
+            $kelengkapan->opsi_1 = $request->pilihan1;
+            $kelengkapan->opsi_2 = $request->pilihan2;
+            $kelengkapan->opsi_3 = $request->pilihan3;
+            $kelengkapan->mahasiswa_id = DataMahasiswa::where('user_id', auth()->user()->id)->first()->id;
+            $kelengkapan->save();
+        }
+
+        return view('pendaftaran.index')->with('success', 'Data berhasil disimpan');
     }
 
     /**

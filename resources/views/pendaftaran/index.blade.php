@@ -2,6 +2,28 @@
 
 @section('content')
     <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                @if (session('status'))
+                    <div class="alert alert-success" role="alert">
+                        {{ session('status') }}
+                    </div>
+                @endif
+            </div>
+            {{-- error --}}
+            <div class="col-md-10">
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul class="m-0">
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+            </div>
+        </div>
+
         <!-- calon mahasiswa -->
         <div class="row justify-content-center mt-3">
             <div class="col-md-10">
@@ -95,6 +117,95 @@
             </div>
         </div>
 
+        <!-- data prodi -->
+        <div class="row justify-content-center mt-3">
+            <div class="col-md-10">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        {{ __('Data Prodi') }}
+                    </div>
+
+                    <div class="card-body">
+                        <form>
+                            @if ($kelengkapan)
+                                {{-- pilihan 1 --}}
+                                <div class="mb-2">
+                                    <label for="inputProdi1" class="form-label">Pilihan 1</label>
+                                    <input type="text" id="inputProdi1" class="form-control"
+                                        value="{{ $kelengkapan->opsi_1 }}" readonly>
+                                </div>
+
+                                {{-- pilihan 2 --}}
+                                <div class="mb-2">
+                                    <label for="inputProdi2" class="form-label">Pilihan 2</label>
+                                    <input type="text" id="inputProdi2" class="form-control"
+                                        value="{{ $kelengkapan->opsi_2 }}" readonly>
+                                </div>
+
+                                {{-- pilihan 3 --}}
+                                <div class="mb-2">
+                                    <label for="inputProdi3" class="form-label">Pilihan 3</label>
+                                    <input type="text" id="inputProdi3" class="form-control"
+                                        value="{{ $kelengkapan->opsi_3 }}" readonly>
+                                </div>
+                            @else
+                                <div class="alert alert-warning" role="alert">
+                                    Data prodi belum lengkap
+                                </div>
+                                <button type="button" class="btn btn-success btn-square" data-bs-toggle="modal"
+                                    data-bs-target="#modalPilihProdi">
+                                    Lengkapi sekarang
+                                </button>
+                            @endif
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- orang tua -->
+        <div class="row justify-content-center mt-3">
+            <div class="col-md-10">
+                <div class="card">
+                    <div class="card-header">{{ __('Data Orang Tua / Wali') }}</div>
+                    <div class="card-body">
+                        <form>
+                            @if ($orangtua)
+                                <div class="mb-2">
+                                    <label for="inputUntuk" class="form-label">Hubungan</label>
+                                    <input type="text" id="inputUntuk" class="form-control"
+                                        value="{{ $orangtua->untuk }}" readonly>
+                                </div>
+                                <div class="mb-2">
+                                    <label for="inputNamaAyah" class="form-label">Nama Ayah</label>
+                                    <input type="text" id="inputNamaAyah" class="form-control"
+                                        value="{{ $orangtua->nama_ayah }}" readonly>
+                                </div>
+                                <div class="mb-2">
+                                    <label for="inputNamaIbu" class="form-label">Nama Ibu</label>
+                                    <input type="text" id="inputNamaIbu" class="form-control"
+                                        value="{{ $orangtua->nama_ibu }}" readonly>
+                                </div>
+                                <div class="mb-2">
+                                    <label for="inputNoHpOrtuWali" class="form-label">Nomor HP</label>
+                                    <input type="text" id="inputNoHpOrtuWali" class="form-control"
+                                        value="{{ $orangtua->no_hp }}" readonly>
+                                </div>
+                            @else
+                                <div class="alert alert-warning" role="alert">
+                                    Data orang tua / wali belum lengkap
+                                </div>
+                                <button type="button" class="btn btn-success btn-square" data-bs-toggle="modal"
+                                    data-bs-target="#modalTambahOrangTuaWali">
+                                    Lengkapi sekarang
+                                </button>
+                            @endif
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- sekolah -->
         <div class="row justify-content-center mt-3">
             <div class="col-md-10">
@@ -140,51 +251,11 @@
                 </div>
             </div>
         </div>
-
-        <!-- orang tua / wali -->
-        <div class="row justify-content-center mt-3">
-            <div class="col-md-10">
-                <div class="card">
-                    <div class="card-header">{{ __('Data Orang Tua / Wali') }}</div>
-                    <div class="card-body">
-                        <form>
-                            @if ($orangtua)
-                                <div class="mb-2">
-                                    <label for="inputUntuk" class="form-label">Hubungan</label>
-                                    <input type="text" id="inputUntuk" class="form-control"
-                                        value="{{ $orangtua->untuk }}" readonly>
-                                </div>
-                                <div class="mb-2">
-                                    <label for="inputNamaAyah" class="form-label">Nama Ayah</label>
-                                    <input type="text" id="inputNamaAyah" class="form-control"
-                                        value="{{ $orangtua->nama_ayah }}" readonly>
-                                </div>
-                                <div class="mb-2">
-                                    <label for="inputNamaIbu" class="form-label">Nama Ibu</label>
-                                    <input type="text" id="inputNamaIbu" class="form-control"
-                                        value="{{ $orangtua->nama_ibu }}" readonly>
-                                </div>
-                                <div class="mb-2">
-                                    <label for="inputNoHpOrtuWali" class="form-label">Nomor HP</label>
-                                    <input type="text" id="inputNoHpOrtuWali" class="form-control"
-                                        value="{{ $orangtua->no_hp }}" readonly>
-                                </div>
-                            @else
-                                <div class="alert alert-warning" role="alert">
-                                    Data orang tua / wali belum lengkap
-                                </div>
-                                <button type="button" class="btn btn-success btn-square" data-bs-toggle="modal"
-                                    data-bs-target="#modalTambahOrangTuaWali">
-                                    Lengkapi sekarang
-                                </button>
-                            @endif
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 
+    @if (!boolval($kelengkapan))
+        @include('pendaftaran.modals.add-prodi')
+    @endif
     @if (!boolval($sekolah))
         @include('pendaftaran.modals.add-sekolah')
     @endif
