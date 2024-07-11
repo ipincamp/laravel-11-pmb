@@ -13,11 +13,15 @@
 
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label for="nisn" class="form-label">NISN (Nomor Induk Siswa Nasional)</label>
+                        <label for="nisn" class="form-label">
+                            NISN (Nomor Induk Siswa Nasional) <span class="text-danger">*</span>
+                        </label>
                         <input type="number" class="form-control" id="nisn" name="nisn">
                     </div>
                     <div class="mb-3">
-                        <label for="derajat" class="form-label">SMK / SMA / MA</label>
+                        <label for="derajat" class="form-label">
+                            Jenjang <span class="text-danger">*</span>
+                        </label>
                         <select class="form-select" id="derajat" name="derajat">
                             <option selected>Pilih Jenjang</option>
                             <option value="SMK">SMK</option>
@@ -26,15 +30,21 @@
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label for="nama" class="form-label">Nama Sekolah</label>
+                        <label for="nama" class="form-label">
+                            Nama Sekolah <span class="text-danger">*</span>
+                        </label>
                         <input type="text" class="form-control" id="nama" name="nama">
                     </div>
                     <div class="mb-3">
-                        <label for="jurusan" class="form-label">Jurusan</label>
+                        <label for="jurusan" class="form-label">
+                            Jurusan <span class="text-danger">*</span>
+                        </label>
                         <input type="text" class="form-control" id="jurusan" name="jurusan">
                     </div>
                     <div class="mb-3">
-                        <label for="alamat" class="form-label">Alamat Sekolah</label>
+                        <label for="alamat" class="form-label">
+                            Alamat Sekolah <span class="text-danger">*</span>
+                        </label>
                         <textarea class="form-control" id="alamat" name="alamat" rows="3"></textarea>
                     </div>
                 </div>

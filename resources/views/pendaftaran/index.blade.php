@@ -2,51 +2,25 @@
 
 @section('content')
     <div class="container">
-        <!-- sekolah -->
-        <div class="row justify-content-center mt-3">
+        <div class="row justify-content-center">
             <div class="col-md-10">
-                <div class="card">
-                    <div class="card-header d-flex justify-content-between align-items-center">
-                        {{ __('Data Sekolah') }}
+                @if (session('status'))
+                    <div class="alert alert-success" role="alert">
+                        {{ session('status') }}
                     </div>
-
-                    <div class="card-body">
-                        <form>
-                            @if ($sekolah)
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text bg-secondary text-white">NISN</span>
-                                    <input type="text" class="form-control" placeholder="NISN" aria-label="NISN"
-                                        value="{{ $sekolah->nisn }}" readonly>
-                                    <span class="input-group-text bg-secondary text-white">Derajat</span>
-                                    <input type="text" class="form-control" placeholder="Derajat"
-                                        aria-label="Derajat" value="{{ $sekolah->derajat }}" readonly>
-                                </div>
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text bg-secondary text-white">Sekolah</span>
-                                    <input type="text" class="form-control" placeholder="Nama Sekolah"
-                                        aria-label="Nama Sekolah" value="{{ $sekolah->nama }}" readonly>
-                                </div>
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text bg-secondary text-white">Jurusan</span>
-                                    <input type="text" class="form-control" placeholder="Jurusan"
-                                        aria-label="Jurusan" value="{{ $sekolah->jurusan }}" readonly>
-                                </div>
-                                <div class="input-group mb-1">
-                                    <span class="input-group-text bg-secondary text-white">Alamat</span>
-                                    <textarea class="form-control" placeholder="Alamat" aria-label="Alamat">{{ $sekolah->alamat }}</textarea>
-                                </div>
-                            @else
-                                <div class="alert alert-warning" role="alert">
-                                    Data sekolah belum lengkap
-                                </div>
-                                <button type="button" class="btn btn-success btn-square" data-bs-toggle="modal"
-                                    data-bs-target="#modalTambahSekolah">
-                                    Lengkapi sekarang
-                                </button>
-                            @endif
-                        </form>
+                @endif
+            </div>
+            {{-- error --}}
+            <div class="col-md-10">
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul class="m-0">
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
                     </div>
-                </div>
+                @endif
             </div>
         </div>
 
@@ -57,7 +31,7 @@
                     <div class="card-header">{{ __('Data Calon Mahasiswa') }}</div>
                     <div class="card-body">
                         <form>
-                            @if ($mahasiswa)
+                            @if (isset($mahasiswa) && $mahasiswa)
                                 <div class="mb-2">
                                     <label for="inputNama" class="form-label">Nama Lengkap</label>
                                     <input type="text" id="inputNama" class="form-control"
@@ -143,14 +117,60 @@
             </div>
         </div>
 
-        <!-- orang tua / wali -->
+        <!-- data prodi -->
+        <div class="row justify-content-center mt-3">
+            <div class="col-md-10">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        {{ __('Data Prodi') }}
+                    </div>
+
+                    <div class="card-body">
+                        <form>
+                            @if (isset($kelengkapan) && $kelengkapan)
+                                {{-- pilihan 1 --}}
+                                <div class="mb-2">
+                                    <label for="inputProdi1" class="form-label">Pilihan 1</label>
+                                    <input type="text" id="inputProdi1" class="form-control"
+                                        value="{{ $kelengkapan->opsi_1 }}" readonly>
+                                </div>
+
+                                {{-- pilihan 2 --}}
+                                <div class="mb-2">
+                                    <label for="inputProdi2" class="form-label">Pilihan 2</label>
+                                    <input type="text" id="inputProdi2" class="form-control"
+                                        value="{{ $kelengkapan->opsi_2 }}" readonly>
+                                </div>
+
+                                {{-- pilihan 3 --}}
+                                <div class="mb-2">
+                                    <label for="inputProdi3" class="form-label">Pilihan 3</label>
+                                    <input type="text" id="inputProdi3" class="form-control"
+                                        value="{{ $kelengkapan->opsi_3 }}" readonly>
+                                </div>
+                            @else
+                                <div class="alert alert-warning" role="alert">
+                                    Data prodi belum lengkap
+                                </div>
+                                <button type="button" class="btn btn-success btn-square" data-bs-toggle="modal"
+                                    data-bs-target="#modalPilihProdi">
+                                    Lengkapi sekarang
+                                </button>
+                            @endif
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- orang tua -->
         <div class="row justify-content-center mt-3">
             <div class="col-md-10">
                 <div class="card">
                     <div class="card-header">{{ __('Data Orang Tua / Wali') }}</div>
                     <div class="card-body">
                         <form>
-                            @if ($orangtua)
+                            @if (isset($orangtua) && $orangtua)
                                 <div class="mb-2">
                                     <label for="inputUntuk" class="form-label">Hubungan</label>
                                     <input type="text" id="inputUntuk" class="form-control"
@@ -185,15 +205,56 @@
                 </div>
             </div>
         </div>
+
+        <!-- sekolah -->
+        <div class="row justify-content-center mt-3">
+            <div class="col-md-10">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        {{ __('Data Sekolah') }}
+                    </div>
+
+                    <div class="card-body">
+                        <form>
+                            @if (isset($sekolah) && $sekolah)
+                                <div class="mb-3">
+                                    <label for="nisn" class="form-label">NISN</label>
+                                    <input type="number" id="nisn" class="form-control" value="{{ $sekolah->nisn }}" readonly>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="derajat" class="form-label">Derajat</label>
+                                    <input type="text" id="derajat" class="form-control" value="{{ $sekolah->derajat }}" readonly>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="sekolah" class="form-label">Nama Sekolah</label>
+                                    <input type="text" id="sekolah" class="form-control" value="{{ $sekolah->nama }}" readonly>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="jurusan" class="form-label">Jurusan</label>
+                                    <input type="text" id="jurusan" class="form-control" value="{{ $sekolah->jurusan }}" readonly>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="alamat" class="form-label">Alamat</label>
+                                    <textarea class="form-control" name="alamat" placeholder="Alamat" aria-label="Alamat">{{ $sekolah->alamat }}</textarea>
+                                </div>
+                            @else
+                                <div class="alert alert-warning" role="alert">
+                                    Data sekolah belum lengkap
+                                </div>
+                                <button type="button" class="btn btn-success btn-square" data-bs-toggle="modal"
+                                    data-bs-target="#modalTambahSekolah">
+                                    Lengkapi sekarang
+                                </button>
+                            @endif
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
-    @if (!boolval($sekolah))
-        @include('pendaftaran.modals.add-sekolah')
-    @endif
-    @if (!boolval($mahasiswa))
-        @include('pendaftaran.modals.add-mahasiswa')
-    @endif
-    @if (!boolval($orangtua))
-        @include('pendaftaran.modals.add-orangtuawali');
-    @endif
+    @include('pendaftaran.modals.add-prodi')
+    @include('pendaftaran.modals.add-sekolah')
+    @include('pendaftaran.modals.add-mahasiswa')
+    @include('pendaftaran.modals.add-orangtuawali');
 @endsection

@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm sticky-top">
     <div class="container-fluid">
         <a class="navbar-brand" href="{{ url('/') }}">
-            <img src="https://www.uhb.ac.id/site/assets/files/2071/logo_uhb_r.420x0-is-pid1040.png" alt="Logo" width="30" height="28"
+            <img src="{{ asset('pmb_replik.png') }}" alt="Logo" width="30" height="28"
                 class="d-inline-block align-text-top">
             {{ config('app.name', 'Laravel') }}
         </a>
@@ -13,7 +13,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav me-auto">
-                @auth
+                {{-- @auth
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('home') }}">{{ __('Beranda') }}</a>
                     </li>
@@ -26,7 +26,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('home') }}">{{ __('Kontak') }}</a>
                     </li>
-                @endauth
+                @endauth --}}
             </ul>
 
             <!-- Right Side Of Navbar -->

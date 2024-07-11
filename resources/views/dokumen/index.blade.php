@@ -1,10 +1,25 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-        <div class="row justify-content-center mt-3">
+<div class="row">
+    <div class="col-12">
+        <div class="row justify-content-right">
+            @if(session('success'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('success') }}
+                </div>
+            @endif
+            @if(session('error'))
+                <div class="alert alert-danger" role="alert">
+                    {{ session('error') }}
+                </div>
+            @endif
+        </div>
+    </div>
+    <div class="col-12">
+        <div class="row justify-content-center mt-3 g-3">
             {{-- KK --}}
-            <div class="col-md-8">
+            <div class="col-md-4">
                 <div class="card">
                     <h5 class="card-header">Kartu Keluarga</h5>
                     <div class="card-body">
@@ -24,28 +39,15 @@
                             </div>
                         @else
                             <div class="mb-3">
-                                <img src="{{ asset('dokumen/') }}/{{ Auth::id() }}-kk.jpg" alt="preview" width="100%" class="img-thumbnail">
-                            </div>
-                        @endif
-
-                        @if(session('success'))
-                            <div class="alert alert-success" role="alert">
-                                {{ session('success') }}
-                            </div>
-                        @endif
-                        @if(session('error'))
-                            <div class="alert alert-danger" role="alert">
-                                {{ session('error') }}
+                                <img src="{{ asset('dokumen/') }}/{{ Auth::id() }}-kk.jpg" alt="preview" class="img-thumbnail" style="max-height: 50%" />
                             </div>
                         @endif
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="row justify-content-center mt-3">
             {{-- KTP --}}
-            <div class="col-md-8">
+            <div class="col-md-4">
                 <div class="card">
                     <h5 class="card-header">Kartu Tanda Penduduk</h5>
                     <div class="card-body">
@@ -65,28 +67,15 @@
                             </div>
                         @else
                             <div class="mb-3">
-                                <img src="{{ asset('dokumen/') }}/{{ Auth::id() }}-ktp.jpg" alt="preview" width="100%" class="img-thumbnail">
-                            </div>
-                        @endif
-
-                        @if(session('success'))
-                            <div class="alert alert-success" role="alert">
-                                {{ session('success') }}
-                            </div>
-                        @endif
-                        @if(session('error'))
-                            <div class="alert alert-danger" role="alert">
-                                {{ session('error') }}
+                                <img src="{{ asset('dokumen/') }}/{{ Auth::id() }}-ktp.jpg" alt="preview" class="img-thumbnail" style="max-height: 50%" />
                             </div>
                         @endif
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="row justify-content-center mt-3">
             {{-- AKTE --}}
-            <div class="col-md-8">
+            <div class="col-md-4">
                 <div class="card">
                     <h5 class="card-header">Akte Kelahiran</h5>
                     <div class="card-body">
@@ -106,18 +95,7 @@
                             </div>
                         @else
                             <div class="mb-3">
-                                <img src="{{ asset('dokumen/') }}/{{ Auth::id() }}-akte.jpg" alt="preview" width="100%" class="img-thumbnail">
-                            </div>
-                        @endif
-
-                        @if(session('success'))
-                            <div class="alert alert-success" role="alert">
-                                {{ session('success') }}
-                            </div>
-                        @endif
-                        @if(session('error'))
-                            <div class="alert alert-danger" role="alert">
-                                {{ session('error') }}
+                                <img src="{{ asset('dokumen/') }}/{{ Auth::id() }}-akte.jpg" alt="preview" class="img-thumbnail" style="max-height: 50%" />
                             </div>
                         @endif
                     </div>
@@ -125,4 +103,5 @@
             </div>
         </div>
     </div>
+</div>
 @endsection

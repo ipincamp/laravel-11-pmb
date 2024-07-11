@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('data_ortu_walis', function (Blueprint $table) {
+        Schema::create('upload_buktis', function (Blueprint $table) {
             $table->id();
-            $table->enum('untuk', ['orang_tua', 'wali'])->default('orang_tua');
-            $table->string('nama_ayah', 100)->nullable();
-            $table->string('nama_ibu', 100)->nullable();
-            $table->string('no_hp', 15)->nullable();
+            $table->enum('metode', ['cash', 'transfer'])->default('transfer');
+            $table->string('tujuan');
+            $table->integer('jumlah');
+            $table->date('tanggal_bayar');
+            $table->string('bukti');
             $table->unsignedBigInteger('mahasiswa_id');
             $table->timestamps();
         });
@@ -27,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('data_ortu_walis');
+        Schema::dropIfExists('upload_buktis');
     }
 };

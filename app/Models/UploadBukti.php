@@ -2,21 +2,30 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class DataOrtuWali extends Model
+class UploadBukti extends Model
 {
+    use HasFactory;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var string[]
+     */
     protected $fillable = [
-        'untuk',
-        'nama_ayah',
-        'nama_ibu',
-        'no_hp',
+        'metode',
+        'tujuan',
+        'jumlah',
+        'tanggal_bayar',
+        'bukti',
         'mahasiswa_id',
     ];
 
     /**
-     * Get the mahasiswa that owns the DataOrtuWali
+     * Get the mahasiswa that owns the Kelengkapan
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */

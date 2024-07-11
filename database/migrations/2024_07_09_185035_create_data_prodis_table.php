@@ -11,13 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('data_ortu_walis', function (Blueprint $table) {
+        Schema::create('data_prodis', function (Blueprint $table) {
             $table->id();
-            $table->enum('untuk', ['orang_tua', 'wali'])->default('orang_tua');
-            $table->string('nama_ayah', 100)->nullable();
-            $table->string('nama_ibu', 100)->nullable();
-            $table->string('no_hp', 15)->nullable();
-            $table->unsignedBigInteger('mahasiswa_id');
+            $table->string('kode', 5)->unique();
+            $table->string('nama', 100);
             $table->timestamps();
         });
     }
@@ -27,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('data_ortu_walis');
+        Schema::dropIfExists('data_prodis');
     }
 };

@@ -14,7 +14,9 @@
                         <div class="input-group has-validation mb-3">
                             <div class="form-floating @error('email') is-invalid @enderror">
                                 <input type="text" class="form-control @error('email') is-invalid @enderror" name="email" id="inputEmailUsername" value="{{ old('email') }}" placeholder="Username" autocomplete="email" required autofocus>
-                                <label for="inputEmailUsername">{{ __('Email atau Username')}}</label>
+                                <label for="inputEmailUsername">
+                                    {{ __('Email atau Username')}} <span class="text-danger">*</span>
+                                </label>
                             </div>
                             @error('email')
                                 <span class="invalid-feedback" role="alert">
@@ -26,7 +28,9 @@
                         <div class="input-group has-validation mb-3">
                             <div class="form-floating @error('password') is-invalid @enderror">
                                 <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" id="inputPassword" value="{{ old('password') }}" placeholder="Username" autocomplete="password" required>
-                                <label for="inputPassword">{{ __('Password')}}</label>
+                                <label for="inputPassword">
+                                    {{ __('Password')}} <span class="text-danger">*</span>
+                                </label>
                             </div>
                             @error('email')
                                 <span class="invalid-feedback" role="alert">
